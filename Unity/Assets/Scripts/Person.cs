@@ -12,6 +12,9 @@ namespace Scripts
         [XmlAttribute]
         public string Name;
 
+        [XmlAttribute]
+        public string Gender;
+
         public List<DialogTree> DialogTrees;
 
         public override string ToString()

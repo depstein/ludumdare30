@@ -1,4 +1,4 @@
-<Person Name="Susie Q">
+<Person Name="Susie Q" Gender="Female">
 	<DialogTrees>
 		<DialogTree Hint="I broke my leg...">
 			<RootStatement Type="Prompt" Prompt="I got trampled playing soccer, and now I need to get my leg amputated. How am I going to survive?">

@@ -1,4 +1,4 @@
-<Person Name="Henrietta">
+<Person Name="Henrietta" Gender="Female">
 	<DialogTrees>
 		<DialogTree Hint="My husband left me...">
 			<RootStatement Type="Prompt" Prompt="How do I get him to take the cat? That thing's the devil.">
