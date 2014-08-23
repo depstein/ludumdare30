@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Scripts {
@@ -15,6 +16,10 @@ namespace Scripts {
 
 		// Use this for initialization
 		void Start () {
+			List<Person> people = XmlLoading.ReadFolderOfPeople();
+			foreach(Person p in people) {
+				Debug.Log(p);
+			}
 			engine = new Engine (XmlLoading.ReadFolderOfPeople());
 			ShowPeopleSelection ();
 		}

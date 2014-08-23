@@ -24,7 +24,9 @@ namespace Scripts {
 			// To read the file, create a FileStream.
 			FileStream myFileStream = file.Open(FileMode.Open);
 			// Call the Deserialize method and cast to the object type.
-			return (Person)mySerializer.Deserialize(myFileStream);
+			Person p = (Person)mySerializer.Deserialize(myFileStream);
+			myFileStream.Close();
+			return p;
 		}
 	}
 }

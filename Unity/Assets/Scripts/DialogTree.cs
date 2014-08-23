@@ -13,10 +13,23 @@ namespace Scripts
         public DialogNode RootNode { get; set; }
         [XmlAttribute]
         public string Hint { get; set; }
+        [XmlAttribute]
+        public string PredicateIdString {
+            get{
+                if(PredicateIds != null) {
+                    return String.Join(",", PredicateIds);
+                } else {
+                    return "";
+                }
+            }
+            set{ PredicateIds = value.Split(','); }
+        }
+
+        public string[] PredicateIds { get; set; }
 
         public override string ToString()
         {
-            return "Node:" + RootNode.ToString();
+            return "Hint: " + Hint + "\nPredicateIds: " + PredicateIdString + "\nNode:" + RootNode.ToString();
         }
     }
 }
