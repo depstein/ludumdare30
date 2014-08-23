@@ -16,10 +16,10 @@ namespace Scripts
             
             if (random.NextDouble() < probability)
             {
-                var answers = new Dictionary<string, DialogNode>();
+                var answers = new List<DialogOption>();
                 for (uint i = 0; i < 3; ++i)
                 {
-                    answers.Add("Answer " + (answer++).ToString(), GenerateNode(random, newProbability));
+                    answers.Add(new DialogOption() {Key = "Answer " + (answer++).ToString(), Value = GenerateNode(random, newProbability) });
                 }
 
                 return new DialogNode() { Type = DialogType.Prompt, Answers = answers, Prompt = "Prompt " + (prompt++).ToString() };
@@ -74,7 +74,7 @@ namespace Scripts
             return new DialogEngine(tree, context);
         }
 
-        private uint dialogCount = 3;
+        private const uint dialogCount = 3;
         private Context context = new Context();
         private Random random = new Random();
         private List<DialogTree> dialogs;
