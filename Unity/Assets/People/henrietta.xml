@@ -15,7 +15,7 @@
 			</RootNode>
 		</DialogTree>
 		<DialogTree Hint="I lost weight..." PredicateIdString="GYM">
-			<RootNode Type="Terminal" Prompt="I went to the gym, and I lost so much weight that now my clothes don't fit. Should I start binging?">
+			<RootNode Type="Prompt" Prompt="I went to the gym, and I lost so much weight that now my clothes don't fit. Should I start binging?">
 				<Answers>
 					<DialogOption Key="Seriously...? Doesn't sound like a problem to me.">
 						<Value Type="Terminal" Prompt="I guess you're right.">
