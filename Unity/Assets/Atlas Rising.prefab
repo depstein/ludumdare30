@@ -46,10 +46,10 @@ MonoBehaviour:
     y: 853
     width: 526
     height: 171
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 100
+    borderRight: 100
+    borderTop: 20
+    borderBottom: 70
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
