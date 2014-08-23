@@ -74,7 +74,7 @@ namespace Scripts
             return new DialogEngine(tree, context);
         }
 
-        private uint dialogCount = 3;
+        private const uint dialogCount = 3;
         private Context context = new Context();
         private Random random = new Random();
         private List<DialogTree> dialogs;
