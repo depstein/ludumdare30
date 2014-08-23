@@ -5,78 +5,53 @@ using System.Text;
 
 namespace Scripts
 {
+    public static class EnumerableAdditions
+    {
+        public static IEnumerable<T> RandomItems<T>(this IEnumerable<T> items, Random random, uint count)
+        {
+            SortedList<int, int> selected = new SortedList<int, int>();
+            while (selected.Count != count)
+            {
+                var index = random.Next(items.Count() - (selected.Count + 1));
+                foreach (var i in selected)
+                {
+                    if (index >= i.Key)
+                        ++index;
+                }
+
+                selected.Add(index, index);
+            }
+
+            return items.Where((t, i) => selected.ContainsKey(i));
+        }
+    }
     public class Engine
     {
-        private static uint answer = 1;
-        private static uint prompt = 1;
-        private static uint terminus = 1;
-        private static DialogNode GenerateNode(Random random, double probability)
+        public Engine(List<Person> people)
         {
-            double newProbability = probability * random.NextDouble() / 1.5;
-            
-            if (random.NextDouble() < probability)
-            {
-                var answers = new List<DialogOption>();
-                for (uint i = 0; i < 3; ++i)
-                {
-                    answers.Add(new DialogOption() {Key = "Answer " + (answer++).ToString(), Value = GenerateNode(random, newProbability) });
-                }
-
-                return new DialogNode() { Type = DialogType.Prompt, Answers = answers, Prompt = "Prompt " + (prompt++).ToString() };
-            }
-
-            return new DialogNode() { Type = DialogType.Terminal, Prompt = "Terminal " + (terminus++).ToString() };
+            this.people = people;
         }
 
-        private static Engine testEngine;
-        public static Engine GetTestEngine()
+        public PersonSelection NextPossiblePeople()
         {
-            if (testEngine == null)
-            {
-                var random = new Random();
-                var trees = new List<DialogTree>();
-                for (uint i = 0; i < 10; ++i )
-                {
-                    trees.Add(new DialogTree() { RootNode = GenerateNode(random, 1.0) });
-                }
-
-                testEngine = new Engine(trees);
-            }
-            return testEngine;
+            return new PersonSelection(
+                    people
+                        .Select(t => new { Person = t, Dialogs = t.DialogTrees.Where(u => u.IsAvailable(context)) })
+                        .Where(t => t.Dialogs.FirstOrDefault() != null)
+                        .RandomItems(random, 3)
+                        .Select(t => new PersonSelectionOption() { Person = t.Person, DialogTree = t.Dialogs.RandomItems(random, 1).First() })
+                        .ToList()
+                );
         }
 
-        public Engine(List<DialogTree> dialogs)
+        public DialogEngine AcceptDialogEntry(PersonSelection dialogs, PersonSelectionOption person)
         {
-            this.dialogs = dialogs;
-        }
-
-        public PossibleDialogs NextPossibleDialogs()
-        {
-            var possible = dialogs.Where(t => t.IsAvailable(context)).ToList();
-
-            List<DialogTree> selectedDialogs = new List<DialogTree>();
-            for (uint i = 0; i < dialogCount; i++)
-            {
-                var index = random.Next(possible.Count() - 1);
-                DialogTree result = possible.ElementAt(index);
-
-                dialogs.Remove(result);
-                possible.Remove(result);
-
-                selectedDialogs.Add(result);
-            }
-
-            return new PossibleDialogs(selectedDialogs);
-        }
-
-        public DialogEngine AcceptDialogEntry(PossibleDialogs dialogs, DialogTree tree)
-        {
-            return new DialogEngine(tree, context);
+            return new DialogEngine(person, context);
         }
 
         private const uint dialogCount = 3;
         private Context context = new Context();
         private Random random = new Random();
-        private List<DialogTree> dialogs;
+        private List<Person> people;
     }
 }
