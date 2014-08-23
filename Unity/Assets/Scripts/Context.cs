@@ -7,7 +7,7 @@ namespace Scripts
 {
     public class Context
     {
-        internal void PromptUsed(PersonSelectionOption dialogTree, DialogNode CurrentNode, string option)
+        public void PromptUsed(PersonSelectionOption dialogTree, DialogNode CurrentNode, string option)
         {
 
         }
