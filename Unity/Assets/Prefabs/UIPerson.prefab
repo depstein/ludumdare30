@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100000
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -10,6 +10,21 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  m_Layer: 0
   m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,28 +92,12 @@ GameObject:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400020}
   m_Layer: 5
-  m_Name: LabelHint
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100012
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400012}
-  - 114: {fileID: 11400024}
-  m_Layer: 5
-  m_Name: LabelName
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -106,13 +105,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1219, y: 140, z: 0}
+  m_LocalPosition: {x: 175.000107, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+  m_RootOrder: 0
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 174, y: 76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 400000}
   - {fileID: 400010}
-  - {fileID: 400012}
   m_Father: {fileID: 400004}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -120,11 +131,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 292, y: 7.62939453e-06, z: 0}
+  m_LocalPosition: {x: -292.329987, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 400002}
   - {fileID: 400008}
-  - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400006
@@ -151,7 +162,7 @@ Transform:
   m_Children:
   - {fileID: 400006}
   m_Father: {fileID: 400004}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400010
 Transform:
   m_ObjectHideFlags: 1
@@ -159,22 +170,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.00009155, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400000}
-  m_RootOrder: 0
---- !u!4 &400012
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.52587891e-05, y: 40, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400000}
+  m_Father: {fileID: 400002}
   m_RootOrder: 1
 --- !u!65 &6500000
 BoxCollider:
@@ -200,25 +199,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 0}
+    target: {fileID: 400010}
     relative: 0
-    absolute: 0
+    absolute: -100
   rightAnchor:
-    target: {fileID: 0}
+    target: {fileID: 400010}
     relative: 1
-    absolute: 0
+    absolute: 50
   bottomAnchor:
-    target: {fileID: 0}
+    target: {fileID: 400010}
     relative: 0
-    absolute: 0
+    absolute: -25
   topAnchor:
-    target: {fileID: 0}
+    target: {fileID: 400010}
     relative: 1
-    absolute: 0
+    absolute: 25
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 526
-  mHeight: 172
+  mWidth: 550
+  mHeight: 177
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -399,99 +398,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 400000}
+    target: {fileID: 0}
     relative: 0
-    absolute: 20
+    absolute: 50
   rightAnchor:
-    target: {fileID: 400000}
+    target: {fileID: 0}
     relative: 1
-    absolute: -30
+    absolute: 0
   bottomAnchor:
-    target: {fileID: 400000}
+    target: {fileID: 0}
     relative: 0
-    absolute: 120
+    absolute: 0
   topAnchor:
-    target: {fileID: 400000}
+    target: {fileID: 0}
     relative: 1
-    absolute: -60
+    absolute: 0
   mColor: {r: .086505197, g: .588235259, b: .0899653733, a: 1}
-  mPivot: 4
-  mWidth: 476
-  mHeight: 2
-  mDepth: 4
+  mPivot: 3
+  mWidth: 400
+  mHeight: 128
+  mDepth: 6
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 170f26243aa124e5698b109ab220810c, type: 3}
   mFont: {fileID: 0}
-  mText: Hello
+  mText: Hello my name is bob and I enjoy speaking to people from time to time.
   mFontSize: 32
   mFontStyle: 0
   mEncoding: 1
-  mMaxLineCount: 0
+  mMaxLineCount: 4
   mEffectStyle: 1
   mEffectColor: {r: 0, g: 0, b: 0, a: .749019623}
   mSymbols: 1
   mEffectDistance: {x: 1.5, y: 1.5}
-  mOverflow: 0
-  mMaterial: {fileID: 0}
-  mApplyGradient: 0
-  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
-  mSpacingX: 0
-  mSpacingY: 0
-  mShrinkToFit: 0
-  mMaxLineWidth: 0
-  mMaxLineHeight: 0
-  mLineWidth: 0
-  mMultiline: 1
---- !u!114 &11400024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 400000}
-    relative: 0
-    absolute: 20
-  rightAnchor:
-    target: {fileID: 400000}
-    relative: 1
-    absolute: -20
-  bottomAnchor:
-    target: {fileID: 400000}
-    relative: 0
-    absolute: 100
-  topAnchor:
-    target: {fileID: 400000}
-    relative: 1
-    absolute: -20
-  mColor: {r: .086505197, g: .588235259, b: .0899653733, a: 1}
-  mPivot: 4
-  mWidth: 252
-  mHeight: 138
-  mDepth: 4
-  autoResizeBoxCollider: 0
-  hideIfOffScreen: 0
-  keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 170f26243aa124e5698b109ab220810c, type: 3}
-  mFont: {fileID: 0}
-  mText: Hello
-  mFontSize: 32
-  mFontStyle: 0
-  mEncoding: 1
-  mMaxLineCount: 0
-  mEffectStyle: 0
-  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
-  mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
-  mOverflow: 0
+  mOverflow: 3
   mMaterial: {fileID: 0}
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
