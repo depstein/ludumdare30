@@ -11,6 +11,7 @@ namespace Scripts
         private Engine engine;
         public GUI.PersonUI[] People;
         public GUI.OptionUI[] Options;
+        public GUI.ContinueUI Continue;
 
         void Start()
         {
@@ -47,7 +48,8 @@ namespace Scripts
 
             if (dialogEngine.CurrentStatement.Type == DialogType.Terminal)
             {
-                ShowPeopleSelection();
+                Options.ForEach(t => t.Hide());
+                Continue.Show(() => ShowPeopleSelection());
                 return;
             }
 
