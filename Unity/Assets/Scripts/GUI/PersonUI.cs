@@ -6,24 +6,43 @@ namespace Scripts.GUI
 {
     public class PersonUI : MonoBehaviour
     {
-        public UILabel Hint;
-        public ButtonUI Button;
-		public GameObject ThoughtBubble;
+        public GameObject ThoughtBubble;
+        public UILabel ThoughtBubbleText;
 
-        public void DisplayOptionUI(PersonSelectionOption person, Action selected)
+        public GameObject SpeechBubble;
+        public UILabel SpeechBubbleText;
+
+        public ButtonUI Button;
+
+        enum State
         {
-            Hint.gameObject.SetActive(true);
-            Hint.text = person.DialogTree.Hint;
-            Button.Click = selected;
-			ThoughtBubble.SetActive (true);
+            Hidden,
+            Thoughts,
+            Speech
         }
 
-        internal void HideOptionUI()
+        public void ShowThoughtBubble(PersonSelectionOption person, Action selected)
         {
-            Hint.gameObject.SetActive(false);
-            Hint.text = null;
-            Button.Click = null;
-			ThoughtBubble.SetActive(false);
+            GoToState(State.Thoughts, person.DialogTree.Hint, selected);
+        }
+
+        public void ShowSpeechBubble(DialogNode node)
+        {
+            GoToState(State.Speech, node.Prompt);
+        }
+
+        internal void Hide()
+        {
+            GoToState(State.Hidden);
+        }
+
+        private void GoToState(State state, string text = null, Action click = null)
+        {
+            SpeechBubble.SetActive(state == State.Speech);
+            ThoughtBubble.SetActive(state == State.Thoughts);
+            Button.Click = state == State.Thoughts ? click : null;
+            ThoughtBubbleText.text = state == State.Thoughts ? text : null;
+            SpeechBubbleText.text = state == State.Speech ? text : null;
         }
     }
 

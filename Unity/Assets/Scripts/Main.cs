@@ -21,16 +21,16 @@ namespace Scripts
         void ShowPeopleSelection()
         {
             Options.ForEach(t => t.Hide());
-            People.ForEach(t => t.HideOptionUI());
+            People.ForEach(t => t.Hide());
             var selection = engine.NextPossiblePeople();
-            selection.People.ForEach((t, i) => People[i].DisplayOptionUI(t, () => PersonSelected(People[i], selection, t)));
+            selection.People.ForEach((t, i) => People[i].ShowThoughtBubble(t, () => PersonSelected(People[i], selection, t)));
         }
 
         void PersonSelected(GUI.PersonUI person, PersonSelection selection, PersonSelectionOption personSelected)
         {
             var dialogEngine = engine.AcceptDialogEntry(selection, personSelected);
 
-            People.Where(t => t != person).ForEach(t => t.HideOptionUI());
+            People.Where(t => t != person).ForEach(t => t.Hide());
 
             RunDialog(dialogEngine, person);
         }
@@ -43,6 +43,8 @@ namespace Scripts
 
         void RunDialog(DialogEngine dialogEngine, GUI.PersonUI person)
         {
+            person.ShowSpeechBubble(dialogEngine.CurrentStatement);
+
             if (dialogEngine.CurrentStatement.Type == DialogType.Terminal)
             {
                 ShowPeopleSelection();
