@@ -1,0 +1,38 @@
+<Person Name="Marc">
+	<DialogTrees>
+		<DialogTree Hint="I'm so sooty...">
+			<RootStatement Type="Prompt" Prompt="I left the stove on and my house burned down. Should I file an insurance claim?">
+				<Answers>
+					<DialogOption Response="Definitely file for insurance. Claim lightning struck your house!">
+						<Statement Type="Prompt" Prompt="You're a genius! What should I do when I get my fortune?">
+							<Answers>
+								<DialogOption Response="I hear there's a real estate developer building a high-rise. You should invest there!">
+									<Statement Type="Terminal" Prompt="Yeah man, it's all about location!">
+									</Statement>
+								</DialogOption>
+								<DialogOption Response="Why not get a monopoly on the town's water supply by buying the water tower?">
+									<Statement Type="Terminal" Prompt="Sweet, that was always my favorite game!">
+									</Statement>
+								</DialogOption>						
+							</Answers>
+						</Statement>
+					</DialogOption>
+					<DialogOption Response="Sounds like a lot of work, and I know how you hate effort.">
+						<Statement Type="Prompt" Prompt="Yeah, that's true. What should I do instead?">
+							<Answers>
+								<DialogOption Response="Move in with your parents!">
+									<Statement Type="Terminal" Prompt="I hate my parents, but they do tell me to visit more often.">
+									</Statement>
+								</DialogOption>
+								<DialogOption Response="What has this town ever done for you? Go enjoy yourself in Eviltown!">
+									<Statement Type="Terminal" Prompt="Yeah, I'll show them!">
+									</Statement>
+								</DialogOption>
+							</Answers>
+						</Statement>
+					</DialogOption>
+				</Answers>
+			</RootStatement>
+		</DialogTree>
+	</DialogTrees>
+</Person>
