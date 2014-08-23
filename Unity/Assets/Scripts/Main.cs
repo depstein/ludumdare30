@@ -21,6 +21,7 @@ namespace Scripts
         void ShowPeopleSelection()
         {
             Options.ForEach(t => t.Hide());
+            People.ForEach(t => t.HideOptionUI());
             var selection = engine.NextPossiblePeople();
             selection.People.ForEach((t, i) => People[i].DisplayOptionUI(t, () => PersonSelected(People[i], selection, t)));
         }
