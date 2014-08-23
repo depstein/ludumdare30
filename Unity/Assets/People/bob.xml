@@ -1,46 +1,46 @@
 <Person Name="Bob">
 	<DialogTrees>
 		<DialogTree Hint="My house just burned down...">
-			<RootNode Type="Prompt" Prompt="My wife decided to microwave some foil, and it set the entire house on fire. We don't have insurance. What should I do?">
+			<RootStatement Type="Prompt" Prompt="My wife decided to microwave some foil, and it set the entire house on fire. We don't have insurance. What should I do?">
 				<Answers>
-					<DialogOption Key="Well damn. You might as well just give up on life.">
-						<Value Type="Terminal" Prompt="Thanks, jerkface.">
-						</Value>
+					<DialogOption Response="Well damn. You might as well just give up on life.">
+						<Statement Type="Terminal" Prompt="Thanks, jerkface.">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="I hear real estate is nice in the Bahamas!">
-						<Value Type="Prompt" Prompt="Ooh, got any connections?">
+					<DialogOption Response="I hear real estate is nice in the Bahamas!">
+						<Statement Type="Prompt" Prompt="Ooh, got any connections?">
 							<Answers>
-								<DialogOption Key="Yeah, my brother is a realtor. I'll put you in touch.">
-									<Value Type="Terminal" Prompt="You're the best, bro!">
-									</Value>
+								<DialogOption Response="Yeah, my brother is a realtor. I'll put you in touch.">
+									<Statement Type="Terminal" Prompt="You're the best, bro!">
+									</Statement>
 								</DialogOption>
-								<DialogOption Key="Nah, I just read it in an issue of SkyMall.">
-									<Value Type="Terminal" Prompt="Well that's no good.">
-									</Value>
+								<DialogOption Response="Nah, I just read it in an issue of SkyMall.">
+									<Statement Type="Terminal" Prompt="Well that's no good.">
+									</Statement>
 								</DialogOption>
 							</Answers>
-						</Value>
+						</Statement>
 					</DialogOption>
 				</Answers>
-			</RootNode>
+			</RootStatement>
 		</DialogTree>
 		<DialogTree Hint="I'm just looking for my princess...">
-			<RootNode Type="Prompt" Prompt="What is love?">
+			<RootStatement Type="Prompt" Prompt="What is love?">
 				<Answers>
-					<DialogOption Key="Baby don't hurt me">
-						<Value Type="Terminal" Prompt="Doo doo doo">
-						</Value>
+					<DialogOption Response="Baby don't hurt me">
+						<Statement Type="Terminal" Prompt="Doo doo doo">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="Don't hurt me">
-						<Value Type="Terminal" Prompt="Doo doo doo doo doo">
-						</Value>
+					<DialogOption Response="Don't hurt me">
+						<Statement Type="Terminal" Prompt="Doo doo doo doo doo">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="No more">
-						<Value Type="Terminal" Prompt="Doo doo doo doo doo doo doo">
-						</Value>
+					<DialogOption Response="No more">
+						<Statement Type="Terminal" Prompt="Doo doo doo doo doo doo doo">
+						</Statement>
 					</DialogOption>
 				</Answers>
-			</RootNode>
+			</RootStatement>
 		</DialogTree>
 	</DialogTrees>
 </Person>

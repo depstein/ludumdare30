@@ -43,20 +43,20 @@ namespace Scripts
 
         void RunDialog(DialogEngine dialogEngine, GUI.PersonUI person)
         {
-            person.ShowSpeechBubble(dialogEngine.CurrentNode);
+            person.ShowSpeechBubble(dialogEngine.CurrentStatement);
 
-            if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
+            if (dialogEngine.CurrentStatement.Type == DialogType.Terminal)
             {
                 ShowPeopleSelection();
                 return;
             }
 
-            var answers = dialogEngine.CurrentNode.Answers;
+            var answers = dialogEngine.CurrentStatement.Answers;
 
             Options.ForEach((t, i) =>
                 {
                     if (i < answers.Count)
-                        t.Show(answers[i].Key, () => TakeOption(dialogEngine, person, answers[i].Key));
+                        t.Show(answers[i].Response, () => TakeOption(dialogEngine, person, answers[i].Response));
                     else
                         t.Hide();
                 });

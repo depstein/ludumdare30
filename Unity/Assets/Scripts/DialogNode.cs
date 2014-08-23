@@ -26,7 +26,7 @@ namespace Scripts
             string str = "Type: " + Type + ", Id: " + Id + ", Prompt: " + Prompt + ", Answers:\n";
             foreach (DialogOption opt in Answers)
             {
-                str += opt.Key + ": " + opt.Value.ToString();
+                str += opt.Response + ": " + opt.Statement.ToString();
             }
             return str;
         }

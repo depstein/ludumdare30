@@ -1,36 +1,36 @@
 <Person Name="Susie Q">
 	<DialogTrees>
 		<DialogTree Hint="I broke my leg...">
-			<RootNode Type="Prompt" Prompt="I got trampled playing soccer, and now I need to get my leg amputated. How am I going to survive?">
+			<RootStatement Type="Prompt" Prompt="I got trampled playing soccer, and now I need to get my leg amputated. How am I going to survive?">
 				<Answers>
-					<DialogOption Key="Think of all of the practical jokes you can play now!">
-						<Value Type="Terminal" Prompt="That's a good point. I like you.">
-						</Value>
+					<DialogOption Response="Think of all of the practical jokes you can play now!">
+						<Statement Type="Terminal" Prompt="That's a good point. I like you.">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="Modern medicine is a wonderful thing. Think about the story you have to tell now!">
-						<Value Type="Terminal" Prompt="I guess I'll be alright.">
-						</Value>
+					<DialogOption Response="Modern medicine is a wonderful thing. Think about the story you have to tell now!">
+						<Statement Type="Terminal" Prompt="I guess I'll be alright.">
+						</Statement>
 					</DialogOption>
 				</Answers>
-			</RootNode>
+			</RootStatement>
 		</DialogTree>
 		<DialogTree Hint="I got fired today...">
-			<RootNode Type="Prompt" Prompt="My company downsized today, and my customer service job got replaced by a computer. What should I do?">
+			<RootStatement Type="Prompt" Prompt="My company downsized today, and my customer service job got replaced by a computer. What should I do?">
 				<Answers>
-					<DialogOption Key="Why don't you go back to school? Customer service isn't employable for much longer.">
-						<Value Type="Terminal" Prompt="Sweet! I'm totally going to go back to school to study underwater basket weaving. You're the best!">
-						</Value>
+					<DialogOption Response="Why don't you go back to school? Customer service isn't employable for much longer.">
+						<Statement Type="Terminal" Prompt="Sweet! I'm totally going to go back to school to study underwater basket weaving. You're the best!">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="Embrace the 21st century! Join Twitter!">
-						<Value Type="Terminal" Prompt="Cool, follow me at @daepstein!">
-						</Value>
+					<DialogOption Response="Embrace the 21st century! Join Twitter!">
+						<Statement Type="Terminal" Prompt="Cool, follow me at @daepstein!">
+						</Statement>
 					</DialogOption>
-					<DialogOption Key="I got nothing. Sorry.">
-						<Value Type="Terminal" Prompt="... I need to find a new bar.">
-						</Value>
+					<DialogOption Response="I got nothing. Sorry.">
+						<Statement Type="Terminal" Prompt="... I need to find a new bar.">
+						</Statement>
 					</DialogOption>
 				</Answers>
-			</RootNode>
+			</RootStatement>
 		</DialogTree>
 	</DialogTrees>
 </Person>

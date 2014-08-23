@@ -11,18 +11,18 @@ namespace Scripts
         {
             this.person = person;
             this.context = context;
-            this.CurrentNode = person.DialogTree.RootNode;
+            this.CurrentStatement = person.DialogTree.RootStatement;
         }
 
         public void TakeOption(string option)
         {
-            DialogOption selectedOption = this.CurrentNode.Answers.First(t => t.Key == option);
-            this.context.PromptUsed(person, CurrentNode, selectedOption);
-            this.CurrentNode = selectedOption.Value;
+            DialogOption selectedOption = this.CurrentStatement.Answers.First(t => t.Response == option);
+            this.context.PromptUsed(person, CurrentStatement, selectedOption);
+            this.CurrentStatement = selectedOption.Statement;
         }
 
         private Context context;
         private PersonSelectionOption person;
-        public DialogNode CurrentNode { get; private set; }
+        public DialogNode CurrentStatement { get; private set; }
     }
 }
