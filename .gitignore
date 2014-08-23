@@ -25,3 +25,5 @@
 *.sln
 
 *.csproj
+
+*.DotSettings
