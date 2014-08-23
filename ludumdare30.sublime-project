@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"file_exclude_patterns": [ "*.meta" ],
+			"path": "Unity/Assets"
+		}
+	]
+}
