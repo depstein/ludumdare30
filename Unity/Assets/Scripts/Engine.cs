@@ -7,22 +7,23 @@ namespace Scripts
 {
     public static class EnumerableAdditions
     {
-        public static IEnumerable<T> RandomItems<T>(this IEnumerable<T> items, Random random, uint count)
+        public static IEnumerable<T> RandomItems<T>(this IEnumerable<T> items, Random random, int count)
         {
-            SortedList<int, int> selected = new SortedList<int, int>();
-            while (selected.Count != count)
+            return ShuffleIterator(items, random).Take(count);
+        }
+
+        public static IEnumerable<T> ShuffleIterator<T>(
+            this IEnumerable<T> source, Random rng)
+        {
+            var buffer = source.ToList();
+
+            for (int i = 0; i < buffer.Count; i++)
             {
-                var index = random.Next(items.Count() - (selected.Count + 1));
-                foreach (var i in selected)
-                {
-                    if (index >= i.Key)
-                        ++index;
-                }
+                int j = rng.Next(i, buffer.Count);
+                yield return buffer[j];
 
-                selected.Add(index, index);
+                buffer[j] = buffer[i];
             }
-
-            return items.Where((t, i) => selected.ContainsKey(i));
         }
     }
     public class Engine
