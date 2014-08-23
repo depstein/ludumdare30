@@ -28,3 +28,4 @@
 
 *.DotSettings
 /Unity/*.userprefs
+/Unity/*.suo
