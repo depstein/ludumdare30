@@ -13,7 +13,6 @@ namespace Scripts
         public void PromptUsed(PersonSelectionOption dialogTree, DialogNode CurrentNode, DialogOption SelectedOption)
         {
         	idsVisited.Add(SelectedOption.Value.Id);
-            Debug.Log(String.Join(", ", idsVisited.ToArray()));
         }
 
         public bool MeetsPredicates(string[] predicates) {
