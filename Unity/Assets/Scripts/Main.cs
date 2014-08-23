@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Linq;
@@ -59,6 +59,4 @@ namespace Scripts
                 });
         }
     }
-
-
 }

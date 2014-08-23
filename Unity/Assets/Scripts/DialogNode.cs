@@ -16,11 +16,14 @@ namespace Scripts
         [XmlAttribute]
         public string Prompt { get; set; }
 
+        [XmlAttribute]
+        public string Id { get; set; }
+
         public List<DialogOption> Answers { get; set; }
 
         public override string ToString()
         {
-            string str = "Type: " + Type + ", Prompt: " + Prompt + ", Answers:\n";
+            string str = "Type: " + Type + ", Id: " + Id + ", Prompt: " + Prompt + ", Answers:\n";
             foreach (DialogOption opt in Answers)
             {
                 str += opt.Key + ": " + opt.Value.ToString();
