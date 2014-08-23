@@ -342,9 +342,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17418ce77341a1a4981272e68730d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hint: {fileID: 11400002}
-  Button: {fileID: 11400010}
   ThoughtBubble: {fileID: 100008}
+  ThoughtBubbleText: {fileID: 11400002}
+  SpeechBubble: {fileID: 100002}
+  SpeechBubbleText: {fileID: 11400020}
+  Button: {fileID: 11400010}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
