@@ -16,8 +16,9 @@ namespace Scripts
 
         public void TakeOption(string option)
         {
-            this.context.PromptUsed(person, CurrentNode, option);
-            this.CurrentNode = this.CurrentNode.Answers.First(t => t.Key == option).Value;
+            DialogOption selectedOption = this.CurrentNode.Answers.First(t => t.Key == option);
+            this.context.PromptUsed(person, CurrentNode, selectedOption);
+            this.CurrentNode = selectedOption.Value;
         }
 
         private Context context;
