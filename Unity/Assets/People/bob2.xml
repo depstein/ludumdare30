@@ -1,4 +1,4 @@
-<Person Name="Bob">
+<Person Name="Bob 2">
 	<DialogTrees>
 		<DialogTree Hint="My house just burned down...">
 			<RootNode Type="Prompt" Prompt="My wife decided to microwave some foil, and it set the entire house on fire. We don't have insurance. What should I do?">
