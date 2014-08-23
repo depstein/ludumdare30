@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,5 +26,13 @@ namespace Scripts
         [XmlAttribute]
         public string Prompt { get; set; }
         public List<DialogOption> Answers { get; set; }
+
+        public override string ToString() {
+            string str = "Type: " + Type + ", Prompt: " + Prompt + ", Answers:\n";
+            foreach(DialogOption opt in Answers) {
+                str += opt.Key + ": " + opt.Value.ToString();
+            }
+            return str;
+        }
     }
 }

@@ -7,9 +7,13 @@ namespace Scripts
 {
     public class DialogTree
     {
-        public bool IsAvailable(Context context) { return true; }
+        public virtual bool IsAvailable(Context context) { return true; }
         public DialogNode RootNode { get;set; }
         [XmlAttribute]
 		public string Hint { get; set; }
+
+        public override string ToString() {
+        	return "Node:" +  RootNode.ToString();
+        }
     }
 }
