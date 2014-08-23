@@ -10,5 +10,16 @@ namespace Scripts {
 		public string Name;
 
 		public List<DialogTree> DialogTrees;
+
+		public override string ToString() {
+			string str =  "Name: " + Name + "\n";
+
+			foreach(DialogTree tree in DialogTrees) {
+				Debug.Log(tree);
+				str += "DialogTree:\n" + tree.ToString() + "\n";
+			}
+
+			return str;
+		}
 	}
 }
