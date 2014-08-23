@@ -1,10 +1,10 @@
 <Person Name="Bob">
 	<DialogTrees>
-		<DialogTree>
+		<DialogTree Hint="Hey hey hey!">
 			<RootNode Type="Terminal" Prompt="Who?">
 			</RootNode>
 		</DialogTree>
-		<DialogTree>
+		<DialogTree Hint="Yo yo yo!">
 			<RootNode Type="Terminal" Prompt="Why?">
 			</RootNode>
 		</DialogTree>
