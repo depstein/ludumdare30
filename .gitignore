@@ -27,3 +27,4 @@
 *.csproj
 
 *.DotSettings
+/Unity/*.userprefs
