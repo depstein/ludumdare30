@@ -6,7 +6,7 @@ namespace Scripts {
 
 		// Use this for initialization
 		void Start () {
-			Debug.Log(XmlLoading.ReadPersonFromFile("bob.xml").Name);
+			Debug.Log(XmlLoading.ReadPersonFromFile("bob.xml").DialogTrees[0].RootNode.Prompt);
 		}
 		
 		// Update is called once per frame
