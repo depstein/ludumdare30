@@ -1,0 +1,18 @@
+<Person Name="Henrietta">
+	<DialogTrees>
+		<DialogTree Hint="My husband left me...">
+			<RootNode Type="Prompt" Prompt="How do I get him to take the cat? That thing's the devil.">
+				<Answers>
+					<DialogOption Key="Simple. Show attachment to it.">
+						<Value Type="Terminal" Prompt="Oh man, that'll totally work.">
+						</Value>
+					</DialogOption>
+					<DialogOption Key="Simple. Move out, go to the gym, lawyer up.">
+						<Value Type="Terminal" Prompt="Can dooseville, baby doll.">
+						</Value>
+					</DialogOption>
+				</Answers>
+			</RootNode>
+		</DialogTree>
+	</DialogTrees>
+</Person>
