@@ -1,0 +1,66 @@
+Person: House burned down stove
+	Q: Should I file insurance?
+		A: File insurance
+			Q: What should I invest in?
+				A: SF development
+				A: Water tower
+		A: Don't do that:
+			Q: What should i do then?
+				A: Move in with parents
+					R: i hate my parents, but okey *leaves*
+				A: Move to a different town
+					R: *leaves*
+
+
+Person: Steve - the drunk - eighth beer
+	Q: Can I get a round for the entire bar
+		A: I know you don't have the money
+			R: *getting angry* - I'm going to start my own bar!
+		A: It's on the house - your my best customer
+		A: Go home your drunk
+
+Person: Soccer Mom gossiping
+	Q: Driving five hours to soccer match - mayor with his limousine in the middle of no where. What do you think the mayor was doing?
+		A: probably has his reasons (on mayor's side)
+			R: *scoughs* (never voted for him) *leaves*
+		A: he was probably conspiring with evilton
+			Q: the mayor is selling our reserve water to them for profit (never voted for him).
+				...
+		A: Why do you drive so far?
+			Q: My kid is all-state I have to drive to Canada so he can compete with kids on his level.  he's going to play soccer in europe someday.
+				A: Well good luck to him!
+					R: thanks, *leaves*
+
+Person: Southerner
+	Q: The south will rise again!
+		A: Pardon?
+			Q: We have too many commies around these days.
+			Q: The south will rise again!
+				A: okay
+		A: You're damn right!
+		A: In Montana?
+
+Person: Troubled Teenager (in the cult)
+	Q: *clearly underage* *voices breaks* I want a beer.
+		A: Aren't you a bit young for a beer.
+			Q: Its not for me its for the turtles.
+				A: for the turtles?
+					Q: How else are we suposed to get them out here (explain cult a bit)
+						A: ooookaaay
+		A: Sure, here you go.
+			R: *leaves* finally the turtles will hear our call
+
+Person: Thirsty Guy
+	Q: I need a beer I am so damn thirsty - i haven't drank anything in forever?
+		A: How about some water instead?
+			Q: Don't drink the water!
+				A: Why not?
+					R: The mayor closed the treatment plant to save money
+		A: I'll make it a double then
+
+Person: Turtle Cult SF
+	Q: Can't believe they are trying to build that new development on top of the sacred grounds
+		A: I know how could they?
+		A: It will bring lots of business:
+			Q: But how are we going to the get the water without the sacredgrouds/cults/etc.
+
