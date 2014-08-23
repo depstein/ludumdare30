@@ -11,7 +11,7 @@ namespace Scripts {
 		public DialogEngine dialogEngine;
 
 		private PersonSelection selection;
-
+		public UILabel[] options;
 
 		// Use this for initialization
 		void Start () {
@@ -48,27 +48,31 @@ namespace Scripts {
 			clickScript.function = () => 
 			{
 				// Hide buttons above
+				HidePeople ();
 				SelectPerson (selection.People [index]); 
 			};
+		}
+
+		void HidePeople()
+		{
+			for (int x = 0; x < 3; x++)
+			{
+				GameObject person = GameObject.Find ("Person " + x);
+				var personObject = person.GetComponent<UIPerson>();
+				personObject.SetHintUIVisibility(false);
+			}
 		}
 
 		void ShowPerson(PersonSelection selection, int index)
 		{
 			PersonSelectionOption selectionOption = selection.People[index];
 
-			GameObject personObject = GameObject.Find ("Person "+index);
-			UILabel[] labels = personObject.GetComponents<UILabel>();
-			foreach (UILabel label in labels)
-			{
-				if (label.name.Equals("LabelName"))
-				{
-					label.text = selectionOption.Person.Name;
-				}
-				else if (label.name.Equals ("LabelHint"))
-				{
-					label.text = "I'd like a drink";
-				}
-			}
+			GameObject person = GameObject.Find ("Person " + index);
+			var personObject = person.GetComponent<UIPerson>();
+			personObject.SetHintUIVisibility(true);
+
+			personObject.name.text = selectionOption.Person.Name;
+			personObject.hint.text = selectionOption.DialogTree.Hint;
 		}
 
 		void SelectPerson(PersonSelectionOption person)
@@ -84,24 +88,53 @@ namespace Scripts {
 
 			// dialogEngine.CurrentNode.Prompt
 
-			/*if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
+
+			if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
 			{
+				for (int x = 0; x < options.Length; x++)
+				{
+					options[x].gameObject.SetActive(false);
+				}
+				ShowPeopleSelection();
 				// show ok button
 				
-				BasicButtonClick button0 = null; /// .....
+				/*BasicButtonClick button0 = null; /// .....
 				
 				button0.function = 
 					() => 
 					{ 
 						// remove prompt/answer above
 						ShowPeopleSelection();
-					}
+					}*/
 			}
 			else
 			{
 				// dialogEngine.CurrentNode.Answers
-				
-				BasicButtonClick button0 = null; /// .....
+
+				for (int x = 0; x < options.Length; x++)
+				{
+					if (x < dialogEngine.CurrentNode.Answers.Count)
+					{
+						options[x].text = dialogEngine.CurrentNode.Answers[x].Key;
+						options[x].gameObject.SetActive(true);
+
+						BasicButtonClick clickScript = options[x].GetComponent<BasicButtonClick> ();
+						int chosenOption = x;
+						clickScript.function = 
+							() => 
+							{ 
+								// remove prompt/answer above
+								dialogEngine.TakeOption(dialogEngine.CurrentNode.Answers[chosenOption].Key); 
+								ShowNode();
+							};
+					}
+					else
+					{
+						options[x].gameObject.SetActive(false);
+					}
+				}
+
+				/*BasicButtonClick button0 = null; /// .....
 				
 				button0.function = 
 					() => 
@@ -109,8 +142,8 @@ namespace Scripts {
 						// remove prompt/answer above
 						dialogEngine.TakeOption(dialogEngine.CurrentNode.Answers[0].Value); 
 						ShowNode();
-					};
-			}*/
+					};*/
+			}
 
 		}
 		
