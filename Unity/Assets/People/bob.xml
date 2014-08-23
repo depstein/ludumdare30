@@ -9,14 +9,16 @@
 					</DialogOption>
 					<DialogOption Key="I hear real estate is nice in the Bahamas!">
 						<Value Type="Prompt" Prompt="Ooh, got any connections?">
-							<DialogOption Key="Yeah, my brother is a realtor. I'll put you in touch.">
-								<Value Type="Terminal" Prompt="You're the best, bro!">
-								</Value>
-							</DialogOption>
-							<DialogOption Key="Nah, I just read it in an issue of SkyMall.">
-								<Value Type="Terminal" Prompt="Well that's no good.">
-								</Value>
-							</DialogOption>
+							<Answers>
+								<DialogOption Key="Yeah, my brother is a realtor. I'll put you in touch.">
+									<Value Type="Terminal" Prompt="You're the best, bro!">
+									</Value>
+								</DialogOption>
+								<DialogOption Key="Nah, I just read it in an issue of SkyMall.">
+									<Value Type="Terminal" Prompt="Well that's no good.">
+									</Value>
+								</DialogOption>
+							</Answers>
 						</Value>
 					</DialogOption>
 				</Answers>

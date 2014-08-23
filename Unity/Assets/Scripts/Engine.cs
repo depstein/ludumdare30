@@ -5,26 +5,6 @@ using System.Text;
 
 namespace Scripts
 {
-    public static class EnumerableAdditions
-    {
-        public static IEnumerable<T> RandomItems<T>(this IEnumerable<T> items, Random random, uint count)
-        {
-            SortedList<int, int> selected = new SortedList<int, int>();
-            while (selected.Count != count)
-            {
-                var index = random.Next(items.Count() - (selected.Count + 1));
-                foreach (var i in selected)
-                {
-                    if (index >= i.Key)
-                        ++index;
-                }
-
-                selected.Add(index, index);
-            }
-
-            return items.Where((t, i) => selected.ContainsKey(i));
-        }
-    }
     public class Engine
     {
         public Engine(List<Person> people)
