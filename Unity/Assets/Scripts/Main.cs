@@ -1,157 +1,63 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Linq;
 
+namespace Scripts
+{
+    public class Main : MonoBehaviour
+    {
 
-namespace Scripts {
+        private Engine engine;
+        public GUI.PersonUI[] People;
+        public GUI.OptionUI[] Options;
 
+        void Start()
+        {
+            engine = new Engine(XmlLoading.ReadFolderOfPeople());
+            ShowPeopleSelection();
+        }
 
-	public class Main : MonoBehaviour {
-		
-		public Engine engine;
-		public DialogEngine dialogEngine;
+        void ShowPeopleSelection()
+        {
+            var selection = engine.NextPossiblePeople();
+            selection.People.ForEach((t, i) => People[i].DisplayOptionUI(t, () => PersonSelected(People[i], selection, t)));
+        }
 
-		private PersonSelection selection;
-		public UILabel[] options;
+        void PersonSelected(GUI.PersonUI person, PersonSelection selection, PersonSelectionOption personSelected)
+        {
+            var dialogEngine = engine.AcceptDialogEntry(selection, personSelected);
 
-		// Use this for initialization
-		void Start () {
-			engine = new Engine (XmlLoading.ReadFolderOfPeople());
-			ShowPeopleSelection ();
-		}
+            People.Where(t => t != person).ForEach(t => t.HideOptionUI());
 
-		void ShowPeopleSelection()
-		{
-			selection = engine.NextPossiblePeople ();
+            RunDialog(dialogEngine, person);
+        }
 
-			for (int x = 0; x < selection.People.Count; x++)
-			{
-				SetButton (selection, x);
-				ShowPerson (selection, x);
-			}
-			// selection.People[0].Person.Name
-			// selection.People[0].DialogTree.Hint
+        void TakeOption(DialogEngine dialogEngine, GUI.PersonUI person, string option)
+        {
+            dialogEngine.TakeOption(option);
+            RunDialog(dialogEngine, person);
+        }
 
-/*			BasicButtonClick button0 = null; /// .....
+        void RunDialog(DialogEngine dialogEngine, GUI.PersonUI person)
+        {
+            if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
+            {
+                ShowPeopleSelection();
+                return;
+            }
 
-			button0.function = 
-				() =>
-				{
-					// Hide buttons above
-					SelectPerson (selection.People [0]);
-				};*/
-		}
+            var answers = dialogEngine.CurrentNode.Answers;
 
-		void SetButton(PersonSelection selection, int index)
-		{
-			GameObject personObject = GameObject.Find ("Person "+index);
-			BasicButtonClick clickScript = personObject.GetComponent<BasicButtonClick> ();
-			clickScript.function = () => 
-			{
-				// Hide buttons above
-				HidePeople ();
-				SelectPerson (selection.People [index]); 
-			};
-		}
-
-		void HidePeople()
-		{
-			for (int x = 0; x < 3; x++)
-			{
-				GameObject person = GameObject.Find ("Person " + x);
-				var personObject = person.GetComponent<UIPerson>();
-				personObject.SetHintUIVisibility(false);
-			}
-		}
-
-		void ShowPerson(PersonSelection selection, int index)
-		{
-			PersonSelectionOption selectionOption = selection.People[index];
-
-			GameObject person = GameObject.Find ("Person " + index);
-			var personObject = person.GetComponent<UIPerson>();
-			personObject.SetHintUIVisibility(true);
-
-			personObject.name.text = selectionOption.Person.Name;
-			personObject.hint.text = selectionOption.DialogTree.Hint;
-		}
-
-		void SelectPerson(PersonSelectionOption person)
-		{
-			dialogEngine = engine.AcceptDialogEntry (selection, person);
-			selection = null;
-
-			ShowNode ();
-		}
-
-		void ShowNode()
-		{
-
-			// dialogEngine.CurrentNode.Prompt
-
-
-			if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
-			{
-				for (int x = 0; x < options.Length; x++)
-				{
-					options[x].gameObject.SetActive(false);
-				}
-				ShowPeopleSelection();
-				// show ok button
-				
-				/*BasicButtonClick button0 = null; /// .....
-				
-				button0.function = 
-					() => 
-					{ 
-						// remove prompt/answer above
-						ShowPeopleSelection();
-					}*/
-			}
-			else
-			{
-				// dialogEngine.CurrentNode.Answers
-
-				for (int x = 0; x < options.Length; x++)
-				{
-					if (x < dialogEngine.CurrentNode.Answers.Count)
-					{
-						options[x].text = dialogEngine.CurrentNode.Answers[x].Key;
-						options[x].gameObject.SetActive(true);
-
-						BasicButtonClick clickScript = options[x].GetComponent<BasicButtonClick> ();
-						int chosenOption = x;
-						clickScript.function = 
-							() => 
-							{ 
-								// remove prompt/answer above
-								dialogEngine.TakeOption(dialogEngine.CurrentNode.Answers[chosenOption].Key); 
-								ShowNode();
-							};
-					}
-					else
-					{
-						options[x].gameObject.SetActive(false);
-					}
-				}
-
-				/*BasicButtonClick button0 = null; /// .....
-				
-				button0.function = 
-					() => 
-					{ 
-						// remove prompt/answer above
-						dialogEngine.TakeOption(dialogEngine.CurrentNode.Answers[0].Value); 
-						ShowNode();
-					};*/
-			}
-
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
-		}
-	}
+            Options.ForEach((t, i) =>
+                {
+                    if (i < answers.Count)
+                        t.Show(answers[i].Key, () => TakeOption(dialogEngine, person, answers[i].Key));
+                    else
+                        t.Hide();
+                });
+        }
+    }
 
 
 }
