@@ -1,0 +1,34 @@
+<Person Name="Alice">
+	<DialogTrees>
+		<DialogTree Hint="The mayor blocked the road...">
+			<RootStatement Type="Prompt" Prompt="Long day! It took me FIVE HOURS to drive my son to his soccer game--it usually only takes three!">
+				<Answers>
+					<DialogOption Response="Oh no! What happened?">
+						<Statement Type="Prompt" Prompt="The mayor's limo was blocking traffic, just sitting around. He was supposed to be at my daughter's elementary school today, the kids were really looking forward to it... What on earth was he doing?">
+							<Answers>
+								<DialogOption Response="Oh, I'm sure he had his reasons.">
+									<Statement Type="Terminal" Prompt="Hmph, figures you like him. I'm glad I never voted for him!">
+									</Statement>
+								</DialogOption>
+								<DialogOption Response="He was probably conspiring with Evilton.">
+									<Statement Type="Terminal" Prompt="You know, I heard he was trying to sell our water reserves to them. I'm glad I never voted for him!">
+									</Statement>
+								</DialogOption>
+								<DialogOption Response="Why do you drive so far? Can't your son play soccer here in Greendale?">
+									<Statement Type="Prompt" Prompt="In this town? You're kidding me. I have to drive all the way to Canada just to find other kids at his level. He's gonna play over in Europe someday, I'm absolutely sure of it!">
+										<Answers>
+											<DialogOption Response="Well... good luck to him!">
+												<Statement Type="Terminal" Prompt="My boy doesn't need any luck, he's the best in the country!">
+												</Statement>
+											</DialogOption>
+										</Answers>
+									</Statement>
+								</DialogOption>
+							</Answers>
+						</Statement>
+					</DialogOption>
+				</Answers>
+			</RootStatement>
+		</DialogTree>
+	</DialogTrees>
+</Person>
