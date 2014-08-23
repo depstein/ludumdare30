@@ -7,14 +7,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{202DDE04-A9DD-9848-F932-C7B6A5D1C4BA}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -132,6 +134,12 @@
     <Compile Include="Assets\NGUI\Scripts\Editor\UITweenerEditor.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+    <Compile Include="Scripts\Context.cs" />
+    <Compile Include="Scripts\DialogEngine.cs" />
+    <Compile Include="Scripts\DialogNode.cs" />
+    <Compile Include="Scripts\Dialogs.cs" />
+    <Compile Include="Scripts\DialogTree.cs" />
+    <Compile Include="Scripts\Engine.cs" />
     <None Include="Assets\NGUI\ReadMe - 3.0.7 f3.txt" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
