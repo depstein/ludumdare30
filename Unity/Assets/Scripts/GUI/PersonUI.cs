@@ -40,7 +40,7 @@ namespace Scripts.GUI
         {
             SpeechBubble.SetActive(state == State.Speech);
             ThoughtBubble.SetActive(state == State.Thoughts);
-            Button.Click = state == State.Speech ? click : null;
+            Button.Click = state == State.Thoughts ? click : null;
             ThoughtBubbleText.text = state == State.Thoughts ? text : null;
             SpeechBubbleText.text = state == State.Speech ? text : null;
         }
