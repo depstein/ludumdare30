@@ -21,6 +21,8 @@ namespace Scripts.GUI
         internal void HideOptionUI()
         {
             Hint.gameObject.SetActive(false);
+            Hint.text = null;
+            Button.Click = null;
 			ThoughtBubble.SetActive(false);
         }
     }
