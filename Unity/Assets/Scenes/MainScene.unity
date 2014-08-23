@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hint: {fileID: 234473137}
   Button: {fileID: 572265917}
-  ThoughtBubble: {fileID: 0}
+  ThoughtBubble: {fileID: 1153011191}
 --- !u!1 &572667915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1366,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 578825282}
   - 114: {fileID: 578825284}
+  - 114: {fileID: 578825283}
   m_Layer: 5
   m_Name: LabelHint
   m_TagString: Untagged
@@ -1385,6 +1386,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 379413601}
   m_RootOrder: 0
+--- !u!114 &578825283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 58650e1f81e5d7249af684f557cff320,
+    type: 2}
+  m_PrefabInternal: {fileID: 84643939}
+  m_GameObject: {fileID: 578825281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &578825284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2748,7 +2761,8 @@ Transform:
 --- !u!114 &1370208810
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400004, guid: 58650e1f81e5d7249af684f557cff320,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1370208808}
   m_Enabled: 1
@@ -3257,6 +3271,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1769635757}
   - 114: {fileID: 1769635759}
+  - 114: {fileID: 1769635758}
   m_Layer: 5
   m_Name: LabelHint
   m_TagString: Untagged
@@ -3276,6 +3291,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2145027397}
   m_RootOrder: 0
+--- !u!114 &1769635758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 58650e1f81e5d7249af684f557cff320,
+    type: 2}
+  m_PrefabInternal: {fileID: 834947913}
+  m_GameObject: {fileID: 1769635756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1769635759
 MonoBehaviour:
   m_ObjectHideFlags: 0
