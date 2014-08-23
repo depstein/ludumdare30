@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 public class BasicButtonClick : MonoBehaviour {
-	public Function function { get; set; }
+	public delegate void Action ();
+
+	public Action function { get; set; }
 
 	void OnClick ()
 	{
