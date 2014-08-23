@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Scripts
 {
-    public class PossibleDialogs
+    public class PersonSelection
     {
-        public PossibleDialogs(List<DialogTree> trees)
+        public PersonSelection(List<PersonSelectionOption> people)
         {
-            Trees = trees;
+            People = people;
         }
 
-        public List<DialogTree> Trees { get; private set; }
+        public List<PersonSelectionOption> People { get; private set; }
     }
 }
