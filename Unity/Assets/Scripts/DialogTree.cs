@@ -9,7 +9,7 @@ namespace Scripts
 {
     public class DialogTree
     {
-        public virtual bool IsAvailable(Context context) { return context.MeetsPredicates(PredicateIds); }
+        public virtual bool IsAvailable(Context context) { return context.MeetsPredicates(PredicateIds) && context.TreeUnexplored(this); }
         public DialogNode RootNode { get; set; }
         [XmlAttribute]
         public string Hint { get; set; }

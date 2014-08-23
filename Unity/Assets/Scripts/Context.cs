@@ -9,10 +9,12 @@ namespace Scripts
     public class Context
     {
     	private HashSet<string> idsVisited = new HashSet<string>();
+        private HashSet<DialogTree> treesExplored = new HashSet<DialogTree>();
 
         public void PromptUsed(PersonSelectionOption dialogTree, DialogNode CurrentNode, DialogOption SelectedOption)
         {
         	idsVisited.Add(SelectedOption.Value.Id);
+            treesExplored.Add(dialogTree.DialogTree);
         }
 
         public bool MeetsPredicates(string[] predicates) {
@@ -25,6 +27,10 @@ namespace Scripts
         		}
         	}
         	return true;
+        }
+
+        public bool TreeUnexplored(DialogTree tree) {
+            return !treesExplored.Contains(tree);
         }
     }
 }
