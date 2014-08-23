@@ -4,6 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"file_exclude_patterns": [ "*.meta" ],
+			"folder_exclude_patterns": [ "ProjectSettings", "Temp", "Library" ],
 			"path": "Unity/Assets"
 		}
 	]
