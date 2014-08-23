@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 namespace Scripts
 {
     public class DialogOption {
+        [XmlAttribute]
         public string Key;
         public DialogNode Value;
     }
