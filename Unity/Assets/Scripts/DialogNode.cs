@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Scripts
 {
+    public class DialogOption {
+        public string Key;
+        public DialogNode Value;
+    }
+
     public enum DialogType
     {
         Prompt,
@@ -15,6 +20,6 @@ namespace Scripts
     {
         public DialogType Type { get; set; }
         public string Prompt { get; set; }
-        public Dictionary<string, DialogNode> Answers { get; set; }
+        public List<DialogOption> Answers { get; set; }
     }
 }
