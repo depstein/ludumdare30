@@ -6,7 +6,7 @@ namespace Scripts {
 
 		// Use this for initialization
 		void Start () {
-			Debug.Log(XmlLoading.ReadFolderOfPeople()[0].Name);
+			Debug.Log(XmlLoading.ReadFolderOfPeople()[0]);
 		}
 		
 		// Update is called once per frame
