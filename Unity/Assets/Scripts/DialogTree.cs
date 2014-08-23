@@ -9,6 +9,7 @@ namespace Scripts
     {
         public bool IsAvailable(Context context) { return true; }
         public DialogNode RootNode { get;set; }
+        [XmlAttribute]
 		public string Hint { get; set; }
     }
 }
