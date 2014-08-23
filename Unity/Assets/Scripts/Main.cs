@@ -23,22 +23,52 @@ namespace Scripts {
 		{
 			selection = engine.NextPossiblePeople ();
 
+			for (int x = 0; x < selection.People.Count; x++)
+			{
+				SetButton (selection, x);
+				ShowPerson (selection, x);
+			}
 			// selection.People[0].Person.Name
 			// selection.People[0].DialogTree.Hint
 
-			BasicButtonClick button0 = null; /// .....
+/*			BasicButtonClick button0 = null; /// .....
 
 			button0.function = 
 				() =>
 				{
 					// Hide buttons above
 					SelectPerson (selection.People [0]);
-				};
+				};*/
 		}
 
-		void ShowPerson(PersonSelectionOption selectionOption)
+		void SetButton(PersonSelection selection, int index)
 		{
+			GameObject personObject = GameObject.Find ("Person "+index);
+			BasicButtonClick clickScript = personObject.GetComponent<BasicButtonClick> ();
+			clickScript.function = () => 
+			{
+				// Hide buttons above
+				SelectPerson (selection.People [index]); 
+			};
+		}
 
+		void ShowPerson(PersonSelection selection, int index)
+		{
+			PersonSelectionOption selectionOption = selection.People[index];
+
+			GameObject personObject = GameObject.Find ("Person "+index);
+			UILabel[] labels = personObject.GetComponents<UILabel>();
+			foreach (UILabel label in labels)
+			{
+				if (label.name.Equals("LabelName"))
+				{
+					label.text = selectionOption.Person.Name;
+				}
+				else if (label.name.Equals ("LabelHint"))
+				{
+					label.text = "I'd like a drink";
+				}
+			}
 		}
 
 		void SelectPerson(PersonSelectionOption person)
@@ -54,7 +84,7 @@ namespace Scripts {
 
 			// dialogEngine.CurrentNode.Prompt
 
-			if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
+			/*if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
 			{
 				// show ok button
 				
@@ -80,7 +110,7 @@ namespace Scripts {
 						dialogEngine.TakeOption(dialogEngine.CurrentNode.Answers[0].Value); 
 						ShowNode();
 					};
-			}
+			}*/
 
 		}
 		
