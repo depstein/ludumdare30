@@ -43,6 +43,8 @@ namespace Scripts
 
         void RunDialog(DialogEngine dialogEngine, GUI.PersonUI person)
         {
+            person.ShowSpeechBubble(dialogEngine.CurrentNode);
+
             if (dialogEngine.CurrentNode.Type == DialogType.Terminal)
             {
                 ShowPeopleSelection();
