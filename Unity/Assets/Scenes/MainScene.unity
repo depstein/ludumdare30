@@ -1227,6 +1227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hint: {fileID: 234473137}
   Button: {fileID: 572265917}
+  ThoughtBubble: {fileID: 0}
 --- !u!1 &572667915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hint: {fileID: 1049238380}
   Button: {fileID: 1008925667}
+  ThoughtBubble: {fileID: 980132651}
 --- !u!65 &1008925669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3465,6 +3467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hint: {fileID: 203153202}
   Button: {fileID: 1817143257}
+  ThoughtBubble: {fileID: 658155197}
 --- !u!65 &1817143259
 BoxCollider:
   m_ObjectHideFlags: 0

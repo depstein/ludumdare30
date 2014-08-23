@@ -347,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hint: {fileID: 11400002}
   Button: {fileID: 11400010}
+  ThoughtBubble: {fileID: 100008}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
