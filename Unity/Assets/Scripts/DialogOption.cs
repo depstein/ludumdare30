@@ -9,7 +9,7 @@ namespace Scripts
     public class DialogOption
     {
         [XmlAttribute]
-        public string Key;
-        public DialogNode Value;
+        public string Response;
+        public DialogNode Statement;
     }
 }

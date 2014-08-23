@@ -13,7 +13,7 @@ namespace Scripts
 
         public void PromptUsed(PersonSelectionOption dialogTree, DialogNode CurrentNode, DialogOption SelectedOption)
         {
-        	idsVisited.Add(SelectedOption.Value.Id);
+        	idsVisited.Add(SelectedOption.Statement.Id);
             treesExplored.Add(dialogTree.DialogTree);
         }
 

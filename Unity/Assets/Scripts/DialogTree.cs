@@ -10,7 +10,7 @@ namespace Scripts
     public class DialogTree
     {
         public virtual bool IsAvailable(Context context) { return context.MeetsPredicates(PredicateIds) && context.TreeUnexplored(this); }
-        public DialogNode RootNode { get; set; }
+        public DialogNode RootStatement { get; set; }
         [XmlAttribute]
         public string Hint { get; set; }
         [XmlAttribute]
@@ -29,7 +29,7 @@ namespace Scripts
 
         public override string ToString()
         {
-            return "Hint: " + Hint + "\nPredicateIds: " + PredicateIdString + "\nNode:" + RootNode.ToString();
+            return "Hint: " + Hint + "\nPredicateIds: " + PredicateIdString + "\nNode:" + RootStatement.ToString();
         }
     }
 }
