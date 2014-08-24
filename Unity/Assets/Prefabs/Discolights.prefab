@@ -72,9 +72,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: .766605139, w: .642118812}
-  m_LocalPosition: {x: 33.8148308, y: -12.0442705, z: 0}
-  m_LocalScale: {x: 2.54227424, y: 2.8959837, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .356738031, w: .934204459}
+  m_LocalPosition: {x: -8.91065598, y: -20.3240528, z: 0}
+  m_LocalScale: {x: 2.37888813, y: 2.70985413, z: 0}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 1
@@ -84,9 +84,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: .424199462, w: .905568779}
-  m_LocalPosition: {x: -31.0465412, y: 5.98921204, z: 0}
-  m_LocalScale: {x: 2.73282337, y: 3.11304545, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .766605139, w: .642118812}
+  m_LocalPosition: {x: 33.8148308, y: -12.0442705, z: 0}
+  m_LocalScale: {x: 2.54227424, y: 2.8959837, z: 0}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 0
@@ -96,9 +96,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: .356738031, w: .934204459}
-  m_LocalPosition: {x: -8.91065598, y: -20.3240528, z: 0}
-  m_LocalScale: {x: 2.37888813, y: 2.70985413, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: .424199462, w: .905568779}
+  m_LocalPosition: {x: -31.0465412, y: 5.98921204, z: 0}
+  m_LocalScale: {x: 2.73282337, y: 3.11304545, z: 0}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 2
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0c3a41f83c4fe284351cc28013d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMultiplier: 30
+  rotationMultiplier: 8.10000038
+  rotationFrequency: 4.92999983
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0c3a41f83c4fe284351cc28013d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMultiplier: -30
+  rotationMultiplier: 7.19999981
+  rotationFrequency: 12.3999996
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0c3a41f83c4fe284351cc28013d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMultiplier: 30
+  rotationMultiplier: -7.61999989
+  rotationFrequency: 8.19999981
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
