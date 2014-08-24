@@ -4,7 +4,7 @@ using System.Collections;
 public class Projectile : MonoBehaviour {
 	public int level;
 	void Awake() {
-		InvokeRepeating("DieInAFire", 5, 5f);
+		Invoke ("DieInAFire", 2.5f);
 	}
 
 	void DieInAFire() {
