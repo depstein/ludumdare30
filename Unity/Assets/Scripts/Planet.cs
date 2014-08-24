@@ -15,6 +15,9 @@ public class Planet : MonoBehaviour
         //GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
         GetComponent<Rigidbody2D>().mass = Size * 4;
         transform.localScale = new Vector3(Size, Size, 1);
+        float h, s, v;
+        Colors.ColorToHSV(Colors.GetRandomColor(), out h, out s, out v);
+        transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Colors.ColorFromHSV(h, s, .95f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
