@@ -78,6 +78,7 @@ public class Planet : MonoBehaviour
 
         GetComponent<Animator>().Play("Explode");
         Destroy(this.gameObject, 2f);
+        StaticScoreboard.AddPoints((int)(Size*1000));
     }
 
     void FixedUpdate()
