@@ -73,7 +73,7 @@ public class Planet : MonoBehaviour
         GetComponent<Animator>().Play("Explode");
         Destroy(this.gameObject, 1f);
 
-        beep.pitch = 1 + StaticScoreboard.planetsDestroyed / 30f;
+		beep.pitch = 1 + Mathf.Pow(2, level-3) / 15f;//StaticScoreboard.planetsDestroyed / 30f;
 
         hasBeenDestroyed = true;
     }
