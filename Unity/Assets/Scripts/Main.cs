@@ -68,7 +68,7 @@ public class Main : MonoBehaviour {
 		ret.GetComponent<Rigidbody2D> ().velocity = vel * dir;//5 * Random.insideUnitCircle;
     }
 
-	public static void MakeProjectilesAt(GameObject planet) {
+	public static void MakeProjectilesAt(GameObject planet, int level) {
 		Vector2 myPosition = planet.GetComponent<Rigidbody2D>().position;
 		Vector2 myVelocity = planet.GetComponent<Rigidbody2D>().velocity;
 		int numDirections = 3;
@@ -80,6 +80,7 @@ public class Main : MonoBehaviour {
 		{
 			float angle = angleRad * x - Mathf.Deg2Rad * 30f;
 			GameObject projectile = GameObject.Instantiate(staticProjectilePrefab, new Vector2(9999, 9999), Quaternion.identity) as GameObject;
+			projectile.GetComponent<Projectile>().level = level;
 			Vector2 vectorDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dirMag;
 			var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
 			projectileRigidBody.velocity = vectorDir;
