@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
+	public int level;
 	void Awake() {
 		InvokeRepeating("DieInAFire", 5, 5f);
 	}
@@ -39,8 +40,8 @@ public class Projectile : MonoBehaviour {
 			b.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(normal.normalized.y, -normal.normalized.x));
 */
 
-			other.GetComponent<Planet>().DestroyPlanet();
-			StaticScoreboard.AddPoints((int)(other.Size*1000));
+			other.GetComponent<Planet>().DestroyPlanet(level);
+			StaticScoreboard.AddPoints((int)(Mathf.Pow(2, level)*1000));
 			GameObject.Destroy (this.gameObject);
         }
 	}
