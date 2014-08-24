@@ -7,13 +7,14 @@ public class DiscoLight : MonoBehaviour {
 	private bool oneTwo = false;
 	private float colorFrequency;
 	public float rotationMultiplier = 30f;
-	private const float rotationFrequency = 3f;
+	public float rotationFrequency = 4f;
 	private float alpha;
 	private float prevTime;
+	private float prevTimeRotation;
 
 	// Use this for initialization
 	void Start () {
-		colorFrequency = Random.Range(1f, 2f);
+		colorFrequency = Random.Range(2f, 4f);
 	}
 	
 	// Update is called once per frame
@@ -21,12 +22,17 @@ public class DiscoLight : MonoBehaviour {
 		float timeModded = (Time.time % colorFrequency)/colorFrequency;
 		if(timeModded<prevTime) {
 			ChangeColor();
+		}
+
+		float timeRotation = Time.time%rotationFrequency;
+		if(timeRotation<prevTimeRotation) {
 			rotationMultiplier *= -1;
 		}
 
 		this.GetComponent<SpriteRenderer>().color = Color.Lerp(color1, color2, oneTwo?timeModded:1-timeModded);
 		transform.Rotate(Vector3.forward * Time.deltaTime * rotationMultiplier);
 		prevTime = timeModded;
+		prevTimeRotation = timeRotation;
 	}
 
 	void ChangeColor() {
