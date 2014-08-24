@@ -17,11 +17,11 @@ public class Planet : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().mass = Size * 4;
         transform.localScale = new Vector3(Size, Size, 1);
-        /*
+        
         float h, s, v;
         Colors.ColorToHSV(Colors.GetRandomColor(), out h, out s, out v);
         transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Colors.ColorFromHSV(h, s, .95f);
-        */
+        
     }
 
     public void DestroyPlanet(int level)
@@ -56,6 +56,12 @@ public class Planet : MonoBehaviour
     {
         if (rigidbody2D == null)
             return;
+
+        Vector3 pos = transform.position;
+        float angle = Mathf.Atan2(pos.y, pos.x);
+        //angle = Mathf.PI * 2f - angle;
+        angle += Mathf.PI / 2.0f;
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle);
 
         lastVelocity = GetComponent<Rigidbody2D>().velocity;
 		Vector3 radius = (Main.staticGravityObject.transform.position - transform.position);
