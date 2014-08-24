@@ -9,18 +9,22 @@ public class Nebula : MonoBehaviour {
 	private bool oneTwo = false;
 	private float colorFrequency;
 	private float rotationMultiplier;
+	private float alpha;
 
 	// Use this for initialization
 	void Start () {
 		colorFrequency = Random.Range(2f, 8f);
-		rotationMultiplier = Random.Range(5f, 10f) * (Random.value > 0.5 ? 1 : -1);
+		rotationMultiplier = Random.Range(5f, 10f) * (Random.value >= 0.5 ? 1 : -1);
+		alpha = Random.Range(0f, 1f);
 		InvokeRepeating("ChangeColor", colorFrequency, colorFrequency);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		float timeModded = (Time.time % colorFrequency)/colorFrequency;
-		this.GetComponent<SpriteRenderer>().color = Color.Lerp(color1, color2, oneTwo?timeModded:1-timeModded);
+		Color next = Color.Lerp(color1, color2, oneTwo?timeModded:1-timeModded);
+		next.a = alpha;
+		this.GetComponent<SpriteRenderer>().color = next;
 		transform.Rotate(Vector3.forward * Time.deltaTime * rotationMultiplier);
 	}
 
