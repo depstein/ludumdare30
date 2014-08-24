@@ -89,7 +89,7 @@ public class Main : MonoBehaviour {
 
 		for (int x = 0; x < numDirections; x++)
 		{
-			float angle = angleRad * x - Mathf.Deg2Rad * 30f;
+			float angle = angleRad * x - Mathf.Deg2Rad * 30f + (level%2==0?0f:(Mathf.Deg2Rad*180f));
 			GameObject projectile = GameObject.Instantiate(staticProjectilePrefab, new Vector2(9999, 9999), Quaternion.identity) as GameObject;
 			projectile.GetComponent<Projectile>().level = level;
 			Vector2 vectorDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dirMag;

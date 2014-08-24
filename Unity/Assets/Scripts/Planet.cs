@@ -15,7 +15,6 @@ public class Planet : MonoBehaviour
 
     void Awake()
     {
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
         GetComponent<Rigidbody2D>().mass = Size * 4;
         transform.localScale = new Vector3(Size, Size, 1);
         /*
