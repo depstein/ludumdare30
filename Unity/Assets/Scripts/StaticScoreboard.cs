@@ -11,17 +11,22 @@ public static class StaticScoreboard {
 	public static void AddPoints(int points) {
 		score += points;
 		planetsDestroyed++;
-		ScoreLabel.text = score.ToString();
+		ScoreLabel.text = "CS " + score.ToString();
+		CheckHighScore();
 	}
 
 	public static void ResetPoints() {
+		CheckHighScore();
+		score = 0;
+		planetsDestroyed = 0;
+		ScoreLabel.text = "CS " + score.ToString();
+	}
+
+	private static void CheckHighScore() {
 		if (score > highScore)
 		{
 			highScore = score;
 			HighScoreLabel.text = "HS "+highScore;
 		}
-		score = 0;
-		planetsDestroyed = 0;
-		ScoreLabel.text = score.ToString();
 	}
 }

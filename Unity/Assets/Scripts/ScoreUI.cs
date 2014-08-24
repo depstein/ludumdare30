@@ -8,8 +8,12 @@ public class ScoreUI : MonoBehaviour {
 	public UILabel gameplayHint;
 
     void Awake() {
-		StaticScoreboard.ScoreLabel = this.ScoreLabel;
-		StaticScoreboard.HighScoreLabel = this.HighScoreLabel;
+    	if(StaticScoreboard.ScoreLabel == null) {
+			StaticScoreboard.ScoreLabel = this.ScoreLabel;
+		}
+		if(StaticScoreboard.HighScoreLabel == null) {
+			StaticScoreboard.HighScoreLabel = this.HighScoreLabel;
+		}
 		GameObject.Destroy (gameplayHint, 5f);
 	}
 }
