@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class DiscoLight : MonoBehaviour {
-	private Color color1 = Colors.White;
-	private Color color2 = Colors.White;
+	private Color color1 = Colors.GetRandomColor();
+	private Color color2 = Colors.GetRandomColor();
 	private bool oneTwo = false;
 	private float colorFrequency;
 	public float rotationMultiplier = 30f;

@@ -3,10 +3,8 @@ using System.Collections;
 
 public class Background : MonoBehaviour {
 	public GameObject background;
-	private Color color1 = Colors.White;
-	private Color color2 = Colors.White;
-	private Color[] destinations = {Colors.GreenYellow, Colors.NeonGreen, Colors.BrightPink, Colors.Lemon, 
-		Colors.SpiroDiscoBall, Colors.Ruddy, Colors.PurplePizzazz, Colors.Celeste, Colors.White};
+	private Color color1 = Colors.GetRandomColor();
+	private Color color2 = Colors.GetRandomColor();
 	private bool oneTwo = false;
 	private const float frequency = 5f;
 
@@ -31,10 +29,8 @@ public class Background : MonoBehaviour {
 	}
 
 	Color NextColor(Color current) {
-		Color next = destinations[Utility.random.Next(destinations.Length)];
-		while(next == current) {
-			next = destinations[Utility.random.Next(destinations.Length)];
-		}
-		return next;
+		float h, s, v;
+		Colors.ColorToHSV(Colors.GetRandomColor(), out h, out s, out v);
+		return Colors.ColorFromHSV(h, s, v, 1f);
 	}
 }

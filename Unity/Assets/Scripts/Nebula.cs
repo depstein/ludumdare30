@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class Nebula : MonoBehaviour {
-	private Color color1 = new Color(1f, 1f, 1f, 0.5f);
-	private Color color2 = new Color(1f, 1f, 1f, 0.5f);
+	private Color color1 = Colors.GetRandomColor();
+	private Color color2 = Colors.GetRandomColor();
 	private bool oneTwo = false;
 	private float colorFrequency;
 	private float rotationMultiplier;
@@ -13,6 +13,8 @@ public class Nebula : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		color1.a = 0.5f;
+		color2.a = 0.5f;
 		colorFrequency = Random.Range(2f, 8f);
 		rotationMultiplier = Random.Range(5f, 10f) * (Random.value >= 0.5 ? 1 : -1);
 		alpha = Random.Range(.1f, .5f);
@@ -30,10 +32,10 @@ public class Nebula : MonoBehaviour {
 		this.GetComponent<SpriteRenderer>().color = Color.Lerp(color1, color2, oneTwo?timeModded:1-timeModded);
 		transform.Rotate(Vector3.forward * Time.deltaTime * rotationMultiplier);
 		transform.position += movement;
-		if(Mathf.Abs(transform.position.x)>=40) {
+		if(Mathf.Abs(transform.position.x)>=35) {
 			movement.x *= -1;
 		}
-		if(Mathf.Abs(transform.position.y)>=25) {
+		if(Mathf.Abs(transform.position.y)>=20) {
 			movement.y *= -1;
 		}
 		prevTime = timeModded;
