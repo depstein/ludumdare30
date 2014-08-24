@@ -9,6 +9,7 @@ public class Planet : MonoBehaviour
     public GameObject PlanetPrefab;
     private Vector2 lastVelocity;
     public GameObject explosion;
+    public AudioSource beep;
 
     private bool hasBeenDestroyed = false;
 
@@ -71,6 +72,8 @@ public class Planet : MonoBehaviour
         Main.MakeProjectilesAt (this.gameObject, level + 1);
         GetComponent<Animator>().Play("Explode");
         Destroy(this.gameObject, 1f);
+
+        beep.pitch = 1 + StaticScoreboard.planetsDestroyed / 30f;
 
         hasBeenDestroyed = true;
     }
