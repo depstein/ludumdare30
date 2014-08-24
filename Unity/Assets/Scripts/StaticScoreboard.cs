@@ -8,6 +8,11 @@ public static class StaticScoreboard {
 
 	public static void AddPoints(int points) {
 		score += points;
+		ScoreLabel.text = score.ToString();
+	}
+
+	public static void ResetPoints() {
+		score = 0;
 		ScoreLabel.text = "Score: " + score;
 	}
 }
