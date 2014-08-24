@@ -10,6 +10,8 @@ public class Planet : MonoBehaviour
     private Vector2 lastVelocity;
     public GameObject explosion;
 
+    private bool hasBeenDestroyed = false;
+
     void Awake()
     {
         //GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
@@ -59,6 +61,20 @@ public class Planet : MonoBehaviour
         */
     }
 
+    public void DestroyPlanet()
+    {
+        if (hasBeenDestroyed)
+            return;
+            
+        this.gameObject.collider2D.enabled = false;
+        Destroy(rigidbody2D);
+        Main.MakeProjectilesAt (this.gameObject);
+        GetComponent<Animator>().Play("Explode");
+        Destroy(this.gameObject, 1f);
+
+        hasBeenDestroyed = true;
+    }
+
     void OnMouseDown()
     {
       /*  Vector2 myPosition = GetComponent<Rigidbody2D>().position;
@@ -79,14 +95,14 @@ public class Planet : MonoBehaviour
             planetRigidBody.position = planetPosition;
         }*/
 
-		this.gameObject.collider2D.enabled = false;
-		Main.MakeProjectilesAt (this.gameObject);
-        GetComponent<Animator>().Play("Explode");
-        Destroy(this.gameObject, 2f);
+        DestroyPlanet();
     }
 
     void FixedUpdate()
     {
+        if (rigidbody2D == null)
+            return;
+
         lastVelocity = GetComponent<Rigidbody2D>().velocity;
 		Vector3 radius = (Main.staticGravityObject.transform.position - transform.position);
 		if (radius.magnitude < 1)
