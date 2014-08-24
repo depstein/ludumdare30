@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class DiscoLight : MonoBehaviour {
-	private Color color1 = new Color(1f, 1f, 1f, 0.5f);
-	private Color color2 = new Color(1f, 1f, 1f, 0.5f);
+	private Color color1 = new Color(1f, 1f, 1f, 1f);
+	private Color color2 = new Color(1f, 1f, 1f, 1f);
 	private bool oneTwo = false;
 	private float colorFrequency;
 	private float rotationMultiplier;
@@ -12,9 +12,9 @@ public class DiscoLight : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		colorFrequency = Random.Range(2f, 8f);
-		rotationMultiplier = Random.Range(5f, 10f) * (Random.value >= 0.5 ? 1 : -1);
-		alpha = Random.Range(.1f, .5f);
+		colorFrequency = Random.Range(1f, 2f);
+		rotationMultiplier = Random.Range(10f, 20f) * (Random.value >= 0.5 ? 1 : -1);
+		alpha = 1f;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,7 @@ public class DiscoLight : MonoBehaviour {
 		float timeModded = (Time.time % colorFrequency)/colorFrequency;
 		if(timeModded<prevTime) {
 			ChangeColor();
+			rotationMultiplier *= -1;
 		}
 
 		this.GetComponent<SpriteRenderer>().color = Color.Lerp(color1, color2, oneTwo?timeModded:1-timeModded);
