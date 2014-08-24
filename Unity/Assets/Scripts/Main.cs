@@ -30,6 +30,7 @@ public class Main : MonoBehaviour {
 	}
 
 	void BeginGame() {
+		sliderObject.SetActive(true);
 		hasDestroyedPlanet = false;
 		StaticScoreboard.ResetPoints ();
 		numClicks = 1;
@@ -45,7 +46,7 @@ public class Main : MonoBehaviour {
 			Destroy( go );
 		}
 
-		maxTimeLeft = timeLeft = 8.0f;
+		maxTimeLeft = timeLeft = 5.0f;
 		for (int x = 0; x < 20; x++)
 		{
 			SpawnPlanet();
@@ -82,6 +83,7 @@ public class Main : MonoBehaviour {
 
 	public static void MakeProjectilesAt(GameObject planet, int level) {
 		instance.gameplayHint.SetActive(false);
+		instance.sliderObject.SetActive(false);
 
 		Vector2 myPosition = planet.GetComponent<Rigidbody2D>().position;
 		Vector2 myVelocity = planet.GetComponent<Rigidbody2D>().velocity;

@@ -35,7 +35,7 @@ public class Planet : MonoBehaviour
         GetComponent<Animator>().Play("Explode");
         Destroy(this.gameObject, 1f);
 
-        beep.pitch = 1 + Mathf.Pow(2, level - 2) / 15f;
+        beep.pitch = 1 + Mathf.Pow(1.5f, level) / 15f;
 
         hasBeenDestroyed = true;
 
