@@ -12,6 +12,7 @@ public class Main : MonoBehaviour {
 	public static float GravitationalConstant = .025f;
 	public static float timeLeft;
 	public static float maxTimeLeft;
+	public static int numClicks;
 
 	void Awake() {
 		staticGravityObject = gravityObject;
@@ -24,6 +25,7 @@ public class Main : MonoBehaviour {
 	}
 
 	void BeginGame() {
+		numClicks = 1;
 		GameObject[] objects = GameObject.FindGameObjectsWithTag("Planet");
 		foreach( GameObject go in objects )
 		{
@@ -36,7 +38,7 @@ public class Main : MonoBehaviour {
 			Destroy( go );
 		}
 
-		maxTimeLeft = timeLeft = 5.0f;
+		maxTimeLeft = timeLeft = 6.0f;
 		//InvokeRepeating("SpawnPlanet", 2, 1f);
 		for (int x = 0; x < 15; x++)
 		{

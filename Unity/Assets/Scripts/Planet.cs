@@ -95,7 +95,11 @@ public class Planet : MonoBehaviour
             planetRigidBody.position = planetPosition;
         }*/
 
-        DestroyPlanet();
+		if (Main.numClicks > 0)
+		{
+        	DestroyPlanet();
+			Main.numClicks--;
+		}
     }
 
     void FixedUpdate()
