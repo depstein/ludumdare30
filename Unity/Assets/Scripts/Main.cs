@@ -6,7 +6,7 @@ public class Main : MonoBehaviour {
 	
 	public GameObject gravityObject;
 	public static GameObject staticGravityObject;
-	public static float GravitationalConstant = .025f;
+	public static float GravitationalConstant = .1f;
 	void Awake() {
 		staticGravityObject = gravityObject;
 	}
@@ -14,7 +14,7 @@ public class Main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//InvokeRepeating("SpawnPlanet", 2, 1f);
-		for (int x = 0; x < 5; x++)
+		for (int x = 0; x < 10; x++)
 		{
 			SpawnPlanet();
 		}
