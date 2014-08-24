@@ -69,9 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialXVelocity: 0
-  Size: 9.99999975e-05
+  Size: .25
   PlanetPrefab: {fileID: 100000}
-  planet: {fileID: 0}
   explosion: {fileID: 100000, guid: f45d3660cf5224fe28bdcfe23314ed39, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:

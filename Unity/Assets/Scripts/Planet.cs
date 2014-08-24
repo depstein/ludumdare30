@@ -9,7 +9,6 @@ public class Planet : MonoBehaviour
     public GameObject PlanetPrefab;
     private Vector2 lastVelocity;
 
-    public GameObject planet;
     public GameObject explosion;
 
     void Awake()
