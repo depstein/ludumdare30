@@ -14,6 +14,5 @@ public class ScoreUI : MonoBehaviour {
 		if(StaticScoreboard.HighScoreLabel == null) {
 			StaticScoreboard.HighScoreLabel = this.HighScoreLabel;
 		}
-		GameObject.Destroy (gameplayHint, 5f);
 	}
 }

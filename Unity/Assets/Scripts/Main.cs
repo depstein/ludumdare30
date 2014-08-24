@@ -5,6 +5,8 @@ public class Main : MonoBehaviour {
 	public GameObject planetPrefab;
 	public GameObject ProjectilePrefab;
 
+	public GameObject gameplayHint;
+
 	public GameObject gravityObject;
 	public GameObject sliderObject;
 	public static GameObject staticGravityObject;
@@ -76,6 +78,8 @@ public class Main : MonoBehaviour {
     }
 
 	public static void MakeProjectilesAt(GameObject planet, int level) {
+		instance.gameplayHint.SetActive(false);
+
 		Vector2 myPosition = planet.GetComponent<Rigidbody2D>().position;
 		Vector2 myVelocity = planet.GetComponent<Rigidbody2D>().velocity;
 		int numDirections = 3;
