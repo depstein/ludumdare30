@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialXVelocity: 0
-  Size: .242676705
+  Size: .181211874
   PlanetPrefab: {fileID: 1396833846}
   explosion: {fileID: 1389207036}
 --- !u!58 &1396833850
@@ -4756,7 +4756,7 @@ GameObject:
   - 198: {fileID: 1559981664}
   - 199: {fileID: 1559981663}
   - 114: {fileID: 1559981662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4787,8 +4787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d0916fd80c74aac868e51155d72def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingLayer: Foreground
-  sortingOrder: 0
+  sortingLayer: Background
+  sortingOrder: 1
 --- !u!199 &1559981663
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -4808,8 +4808,8 @@ ParticleSystemRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 1562381583
-  m_SortingOrder: 0
+  m_SortingLayerID: 1296569505
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
@@ -7337,6 +7337,22 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7d1179c3a29c346c1b4d0df922c345a1, type: 2}
+    - target: {fileID: 100000, guid: e8771f6ab30364795a4886b561f2b1eb, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e8771f6ab30364795a4886b561f2b1eb, type: 2}
+      propertyPath: sortingLayer
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: e8771f6ab30364795a4886b561f2b1eb, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1296569505
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e8771f6ab30364795a4886b561f2b1eb, type: 2}
+      propertyPath: sortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8771f6ab30364795a4886b561f2b1eb, type: 2}
   m_RootGameObject: {fileID: 1559981660}
