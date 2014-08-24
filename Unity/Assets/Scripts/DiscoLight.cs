@@ -2,19 +2,18 @@ using UnityEngine;
 using System.Collections;
 
 public class DiscoLight : MonoBehaviour {
-	private Color color1 = new Color(1f, 1f, 1f, 1f);
-	private Color color2 = new Color(1f, 1f, 1f, 1f);
+	private Color color1 = Colors.White;
+	private Color color2 = Colors.White;
 	private bool oneTwo = false;
 	private float colorFrequency;
-	private float rotationMultiplier;
+	public float rotationMultiplier = 30f;
+	private const float rotationFrequency = 3f;
 	private float alpha;
 	private float prevTime;
 
 	// Use this for initialization
 	void Start () {
 		colorFrequency = Random.Range(1f, 2f);
-		rotationMultiplier = Random.Range(10f, 20f) * (Random.value >= 0.5 ? 1 : -1);
-		alpha = 1f;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +41,6 @@ public class DiscoLight : MonoBehaviour {
 	Color NextColor() {
 		float h, s, v;
 		Colors.ColorToHSV(Colors.GetRandomColor(), out h, out s, out v);
-		return Colors.ColorFromHSV(h, 0.3f, v, alpha);
+		return Colors.ColorFromHSV(h, 0.3f, v, 1f);
 	}
 }
