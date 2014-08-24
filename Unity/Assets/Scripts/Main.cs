@@ -14,9 +14,12 @@ public class Main : MonoBehaviour {
 	public static float maxTimeLeft;
 	public static int numClicks;
 
+	public static Main instance;
+
 	void Awake() {
 		staticGravityObject = gravityObject;
 		staticProjectilePrefab = ProjectilePrefab;
+		instance = this;
 	}
 
 	// Use this for initialization
@@ -66,6 +69,11 @@ public class Main : MonoBehaviour {
 		
 		Vector3 dir = Vector3.Cross (radius.normalized, new Vector3 (0, 0, 1));
 		ret.GetComponent<Rigidbody2D> ().velocity = vel * dir;//5 * Random.insideUnitCircle;
+    }
+
+    public static void ShakeCamera(float amount)
+    {
+    	iTween.ShakePosition(Camera.main.gameObject, new Vector3(amount, amount, amount), .5f);
     }
 
 	public static void MakeProjectilesAt(GameObject planet, int level) {
