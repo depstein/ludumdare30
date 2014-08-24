@@ -42,7 +42,7 @@ public class Main : MonoBehaviour {
 			Destroy( go );
 		}
 
-		maxTimeLeft = timeLeft = 6.0f;
+		maxTimeLeft = timeLeft = 8.0f;
 		for (int x = 0; x < 20; x++)
 		{
 			SpawnPlanet();
@@ -61,13 +61,13 @@ public class Main : MonoBehaviour {
 
 	void SpawnPlanet() {
 		planetPrefab.GetComponent<Planet> ().Size = Random.Range (.2f, .4f);
-		GameObject ret = Instantiate(planetPrefab, Vector2.Scale(Random.insideUnitCircle, new Vector2(25, 15)) + new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
+		GameObject ret = Instantiate(planetPrefab, Vector2.Scale(Random.insideUnitCircle, new Vector2(25, 12)) + new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
 		float angleBetweenVelocityAndRadius = Mathf.PI / 2;
 		Vector3 radius = (Main.staticGravityObject.transform.position - ret.transform.position);
 		float vel = Mathf.Sqrt (GravitationalConstant * staticGravityObject.rigidbody2D.mass / radius.magnitude);
 		
 		Vector3 dir = Vector3.Cross (radius.normalized, new Vector3 (0, 0, 1));
-		ret.GetComponent<Rigidbody2D> ().velocity = vel * dir;//5 * Random.insideUnitCircle;
+		ret.GetComponent<Rigidbody2D> ().velocity = vel * dir;
     }
 
     public static void ShakeCamera(float amount)
