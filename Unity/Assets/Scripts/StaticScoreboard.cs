@@ -3,10 +3,8 @@ using System.Collections;
 
 public static class StaticScoreboard {
 	public static UILabel ScoreLabel;
-	public static UILabel HighScoreLabel;
 
 	private static int score = 0;
-	private static int highScore = 0;
 	public static int planetsDestroyed = 0;
 
 	public static void AddPoints(int points) {
@@ -16,11 +14,6 @@ public static class StaticScoreboard {
 	}
 
 	public static void ResetPoints() {
-		if (score > highScore)
-		{
-			highScore = score;
-			HighScoreLabel.text = "HS: "+highScore.ToString();
-		}
 		score = 0;
 		planetsDestroyed = 0;
 		ScoreLabel.text = score.ToString();
