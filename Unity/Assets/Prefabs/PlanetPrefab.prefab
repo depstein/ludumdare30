@@ -12,7 +12,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlanetPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 198: {fileID: 19800004}
   - 199: {fileID: 19900004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 198: {fileID: 19800008}
   - 199: {fileID: 19900008}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 198: {fileID: 19800002}
   - 199: {fileID: 19900002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 198: {fileID: 19800006}
   - 199: {fileID: 19900006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialXVelocity: 0
-  Size: .25
+  Size: .382419974
   PlanetPrefab: {fileID: 100000}
   explosion: {fileID: 100010}
 --- !u!114 &11400002

@@ -44,7 +44,7 @@ public class Main : MonoBehaviour {
 		Vector2 myVelocity = planet.GetComponent<Rigidbody2D>().velocity;
 		int numDirections = 3;
 		int angleDif = 360 / numDirections;
-		float dirMag = 6.0f;
+		float dirMag = 12.0f;
 		float angleRad = Mathf.Deg2Rad * angleDif;
 
 		for (int x = 0; x < numDirections; x++)

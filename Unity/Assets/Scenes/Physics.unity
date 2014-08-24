@@ -231,7 +231,7 @@ GameObject:
   - 198: {fileID: 351487159}
   - 199: {fileID: 351487158}
   - 114: {fileID: 351487157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,7 +1360,7 @@ GameObject:
   - 4: {fileID: 352144771}
   - 50: {fileID: 352144773}
   - 95: {fileID: 352144772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlanetPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1423,7 @@ GameObject:
   - 4: {fileID: 635053131}
   - 198: {fileID: 635053133}
   - 199: {fileID: 635053132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2538,7 @@ GameObject:
   - 4: {fileID: 854317310}
   - 198: {fileID: 854317312}
   - 199: {fileID: 854317311}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3654,7 +3654,7 @@ GameObject:
   - 198: {fileID: 984040765}
   - 199: {fileID: 984040764}
   - 114: {fileID: 984040763}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4783,7 +4783,7 @@ GameObject:
   - 4: {fileID: 1189565087}
   - 198: {fileID: 1189565089}
   - 199: {fileID: 1189565088}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7500,7 +7500,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1925881672}
   - 212: {fileID: 1925881673}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
