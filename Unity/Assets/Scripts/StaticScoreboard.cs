@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class StaticScoreboard {
 	public static UILabel ScoreLabel;
-
+	public static UILabel HighScoreLabel;
 	private static int score = 0;
 	public static int planetsDestroyed = 0;
 
