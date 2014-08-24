@@ -22,9 +22,9 @@ public class Planet : MonoBehaviour {
 		print ("Box Clicked!");
 		Vector2 myPosition = GetComponent<Rigidbody2D> ().position;
 		Vector2 myVelocity = GetComponent<Rigidbody2D> ().velocity;
-		float dirMag = 3;
-		int numDirections = 3;
+		int numDirections = 5;
 		int angleDif = 360 / numDirections;
+		float dirMag = 3.0f / ((float)numDirections);
 		float angleRad = Mathf.Deg2Rad * angleDif;
 		for (int x = 0; x < numDirections; x++)
 		{
@@ -33,7 +33,7 @@ public class Planet : MonoBehaviour {
 			var planetRigidBody = planet.GetComponent<Rigidbody2D>();
 			planetRigidBody.velocity = myVelocity + vectorDir;
 
-			Vector2 planetPosition = myPosition + planetRigidBody.velocity.normalized * planet.collider2D.bounds.size.magnitude/2;
+			Vector2 planetPosition = myPosition + planetRigidBody.velocity.normalized * planet.collider2D.bounds.size.magnitude;
 			planetRigidBody.position = planetPosition;
 		}
 		Destroy (this.gameObject);
