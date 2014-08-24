@@ -16,6 +16,6 @@ public static class StaticScoreboard {
 	public static void ResetPoints() {
 		score = 0;
 		planetsDestroyed = 0;
-		ScoreLabel.text = "Score: " + score;
+		ScoreLabel.text = score.ToString();
 	}
 }
