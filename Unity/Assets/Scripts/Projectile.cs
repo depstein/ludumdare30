@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour {
 			other.gameObject.collider2D.enabled = false;
 			Main.MakeProjectilesAt(other.gameObject);
 			other.GetComponent<Animator>().Play("Explode");
+			StaticScoreboard.AddPoints((int)(other.Size*1000));
 			GameObject.Destroy (other.gameObject, 2f);
 			GameObject.Destroy (this.gameObject);
         }
