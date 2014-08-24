@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class SortedParticle : MonoBehaviour {
 	public string sortingLayer;
 	public int sortingOrder;
