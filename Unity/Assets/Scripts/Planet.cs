@@ -5,6 +5,10 @@ public class Planet : MonoBehaviour {
 
     public float InitialXVelocity;
 	public bool isStartingPlanet;
+
+	public GameObject planet;
+	public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
 		if (isStartingPlanet)
@@ -36,6 +40,8 @@ public class Planet : MonoBehaviour {
 			Vector2 planetPosition = myPosition + planetRigidBody.velocity.normalized * planet.collider2D.bounds.size.magnitude;
 			planetRigidBody.position = planetPosition;
 		}
-		Destroy (this.gameObject);
+		Destroy (this.planet);
+		explosion.SetActive(true);
+		Destroy(this.gameObject, 2f);
 	}
 }

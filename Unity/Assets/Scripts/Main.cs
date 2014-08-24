@@ -16,6 +16,6 @@ public class Main : MonoBehaviour {
 
 	void SpawnPlanet() {
 		GameObject ret = Instantiate(planetPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-		ret.GetComponent<Planet>().InitialXVelocity = 5;
+		ret.GetComponent<Rigidbody2D>().velocity = 5 * Random.insideUnitCircle;
     }
 }
