@@ -6,9 +6,13 @@ public class Main : MonoBehaviour {
 	public GameObject ProjectilePrefab;
 
 	public GameObject gravityObject;
+	public GameObject sliderObject;
 	public static GameObject staticGravityObject;
 	public static GameObject staticProjectilePrefab;
 	public static float GravitationalConstant = .025f;
+	public static float timeLeft;
+	public static float maxTimeLeft;
+	public static int numClicks;
 
 	void Awake() {
 		staticGravityObject = gravityObject;
@@ -17,15 +21,39 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		BeginGame ();
+	}
+
+	void BeginGame() {
+		numClicks = 1;
+		GameObject[] objects = GameObject.FindGameObjectsWithTag("Planet");
+		foreach( GameObject go in objects )
+		{
+			Destroy( go );
+		}
+
+		objects = GameObject.FindGameObjectsWithTag("Projectile");
+		foreach( GameObject go in objects )
+		{
+			Destroy( go );
+		}
+
+		maxTimeLeft = timeLeft = 6.0f;
 		//InvokeRepeating("SpawnPlanet", 2, 1f);
 		for (int x = 0; x < 15; x++)
 		{
 			SpawnPlanet();
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+		timeLeft -= Time.deltaTime;
+		sliderObject.GetComponent<UISlider> ().value = timeLeft / maxTimeLeft;
+		if (timeLeft <= 0)
+		{
+			BeginGame();
+		}
 	}
 
 	void SpawnPlanet() {
@@ -44,7 +72,7 @@ public class Main : MonoBehaviour {
 		Vector2 myVelocity = planet.GetComponent<Rigidbody2D>().velocity;
 		int numDirections = 3;
 		int angleDif = 360 / numDirections;
-		float dirMag = 12.0f;
+		float dirMag = 20.0f;
 		float angleRad = Mathf.Deg2Rad * angleDif;
 
 		for (int x = 0; x < numDirections; x++)

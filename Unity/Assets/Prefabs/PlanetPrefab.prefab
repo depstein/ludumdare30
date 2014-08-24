@@ -14,7 +14,7 @@ GameObject:
   - 95: {fileID: 9500000}
   m_Layer: 10
   m_Name: PlanetPrefab
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialXVelocity: 0
-  Size: .308796555
+  Size: .332292944
   PlanetPrefab: {fileID: 100000}
   explosion: {fileID: 100010}
 --- !u!114 &11400002
