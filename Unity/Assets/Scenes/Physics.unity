@@ -6701,17 +6701,17 @@ MonoBehaviour:
   renderQueue: 0
   startingRenderQueue: 3000
   worldToLocal:
-    e00: 239.999985
+    e00: 194.5
     e01: 0
     e02: 0
-    e03: 11999.999
+    e03: 9725
     e10: 0
-    e11: 239.999985
+    e11: 194.5
     e12: 0
-    e13: 11999.999
+    e13: 9725
     e20: 0
     e21: 0
-    e22: 239.999985
+    e22: 194.5
     e23: 0
     e30: 0
     e31: 0
@@ -6790,7 +6790,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 0}
+  mTrueTypeFont: {fileID: 12800000, guid: 53b5def433c4f41b58e045de4b2ad10b, type: 3}
   mFont: {fileID: 0}
   mText: 0
   mFontSize: 32
