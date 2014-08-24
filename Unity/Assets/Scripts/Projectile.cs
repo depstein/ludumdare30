@@ -31,8 +31,10 @@ public class Projectile : MonoBehaviour {
 			a.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(-normal.normalized.y, normal.normalized.x));
 			b.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(normal.normalized.y, -normal.normalized.x));
 */
+			other.gameObject.collider2D.enabled = false;
 			Main.MakeProjectilesAt(other.gameObject);
-			GameObject.Destroy (other.gameObject);
+			other.GetComponent<Animator>().Play("Explode");
+			GameObject.Destroy (other.gameObject, 2f);
 			GameObject.Destroy (this.gameObject);
         }
 	}

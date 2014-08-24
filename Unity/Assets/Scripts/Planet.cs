@@ -76,6 +76,7 @@ public class Planet : MonoBehaviour
             planetRigidBody.position = planetPosition;
         }*/
 
+		this.gameObject.collider2D.enabled = false;
 		Main.MakeProjectilesAt (this.gameObject);
         GetComponent<Animator>().Play("Explode");
         Destroy(this.gameObject, 2f);
