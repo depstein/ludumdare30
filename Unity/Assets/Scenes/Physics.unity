@@ -285,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreLabel: {fileID: 1531914209}
   HighScoreLabel: {fileID: 1497208741}
+  gameplayHint: {fileID: 1282315297}
 --- !u!1001 &160101729
 Prefab:
   m_ObjectHideFlags: 0
@@ -360,6 +361,10 @@ Prefab:
       propertyPath: HighScoreLabel
       value: 
       objectReference: {fileID: 1497208741}
+    - target: {fileID: 11400002, guid: b7170a979914c4b5e86a1b164cf65d83, type: 2}
+      propertyPath: gameplayHint
+      value: 
+      objectReference: {fileID: 1282315297}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7170a979914c4b5e86a1b164cf65d83, type: 2}
   m_RootGameObject: {fileID: 1309434185}
@@ -1895,6 +1900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreLabel: {fileID: 1497208741}
   HighScoreLabel: {fileID: 0}
+  gameplayHint: {fileID: 0}
 --- !u!1001 &492503295
 Prefab:
   m_ObjectHideFlags: 0
@@ -6776,6 +6782,92 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!1 &1282315295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1282315296}
+  - 114: {fileID: 1282315297}
+  m_Layer: 5
+  m_Name: GameHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282315296
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282315295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3, y: 9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1309434186}
+  m_RootOrder: 4
+--- !u!114 &1282315297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282315295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 476
+  mHeight: 156
+  mDepth: 3
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: 53b5def433c4f41b58e045de4b2ad10b, type: 3}
+  mFont: {fileID: 0}
+  mText: Click on a planet to destroy it... You get one shot
+  mFontSize: 32
+  mFontStyle: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &1300452335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6841,6 +6933,7 @@ Transform:
   - {fileID: 143648093}
   - {fileID: 2113254213}
   - {fileID: 467584504}
+  - {fileID: 1282315296}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!54 &1309434187
