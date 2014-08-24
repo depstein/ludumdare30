@@ -76,6 +76,8 @@ public class Planet : MonoBehaviour
         beep.pitch = 1 + StaticScoreboard.planetsDestroyed / 30f;
 
         hasBeenDestroyed = true;
+
+        Main.ShakeCamera(Mathf.Max(StaticScoreboard.planetsDestroyed * .075f, .4f));
     }
 
     void OnMouseDown()
