@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.37361193, y: 1.20748925, z: 0}
+  m_LocalPosition: {x: -12.1269646, y: 1.31819987, z: 0}
   m_LocalScale: {x: .220677704, y: .220677733, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialXVelocity: 0
+  Size: 9.99999975e-05
+  PlanetPrefab: {fileID: 100000}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
