@@ -25,6 +25,7 @@ public class Main : MonoBehaviour {
 	}
 
 	void BeginGame() {
+		StaticScoreboard.ResetPoints ();
 		numClicks = 1;
 		GameObject[] objects = GameObject.FindGameObjectsWithTag("Planet");
 		foreach( GameObject go in objects )

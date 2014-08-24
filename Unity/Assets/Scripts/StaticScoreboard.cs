@@ -10,4 +10,9 @@ public static class StaticScoreboard {
 		score += points;
 		ScoreLabel.text = "Score: " + score;
 	}
+
+	public static void ResetPoints() {
+		score = 0;
+		ScoreLabel.text = "Score: " + score;
+	}
 }
