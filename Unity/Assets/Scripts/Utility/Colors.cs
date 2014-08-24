@@ -1,4 +1,4 @@
-public class Colors {
+public static class Colors {
 	public const string AcidGreen = "#A8BB19";
 	public const string Aero = "#7CB9E8";
 	public const string AeroBlue = "#C9FFE5";
