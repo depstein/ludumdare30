@@ -8,12 +8,11 @@ public class Planet : MonoBehaviour
     public float Size = 0.25f;
     public GameObject PlanetPrefab;
     private Vector2 lastVelocity;
-
     public GameObject explosion;
 
     void Awake()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
         GetComponent<Rigidbody2D>().mass = Size * 4;
         transform.localScale = new Vector3(Size, Size, 1);
     }
@@ -82,5 +81,14 @@ public class Planet : MonoBehaviour
     void FixedUpdate()
     {
         lastVelocity = GetComponent<Rigidbody2D>().velocity;
+		Vector3 radius = (Main.staticGravityObject.transform.position - transform.position);
+		if (radius.magnitude < 1)
+		{
+			radius = radius.normalized;
+		}
+		Vector3 numerator = radius.normalized * Main.staticGravityObject.rigidbody2D.mass;
+		float denominator = radius.sqrMagnitude;
+		Vector3 force = numerator * Main.GravitationalConstant / denominator;
+		rigidbody2D.AddForce(force);
     }
 }
