@@ -6,7 +6,7 @@ public class Main : MonoBehaviour {
 	
 	public GameObject gravityObject;
 	public static GameObject staticGravityObject;
-	public static float GravitationalConstant = .1f;
+	public static float GravitationalConstant = 40f;
 	void Awake() {
 		staticGravityObject = gravityObject;
 	}
@@ -25,8 +25,8 @@ public class Main : MonoBehaviour {
 	}
 
 	void SpawnPlanet() {
+		planetPrefab.GetComponent<Planet> ().Size = Random.Range (.1f, .4f);
 		GameObject ret = Instantiate(planetPrefab, Random.insideUnitCircle * 10, Quaternion.identity) as GameObject;
-
 		float angleBetweenVelocityAndRadius = Mathf.PI / 2;
 		Vector3 radius = (Main.staticGravityObject.transform.position - ret.transform.position);
 		float vel = Mathf.Sqrt (GravitationalConstant * staticGravityObject.rigidbody2D.mass / radius.magnitude);
