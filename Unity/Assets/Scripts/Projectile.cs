@@ -31,11 +31,9 @@ public class Projectile : MonoBehaviour {
 			a.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(-normal.normalized.y, normal.normalized.x));
 			b.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(normal.normalized.y, -normal.normalized.x));
 */
-			other.gameObject.collider2D.enabled = false;
-			Main.MakeProjectilesAt(other.gameObject);
-			other.GetComponent<Animator>().Play("Explode");
+
+			other.GetComponent<Planet>().DestroyPlanet();
 			StaticScoreboard.AddPoints((int)(other.Size*1000));
-			GameObject.Destroy (other.gameObject, 2f);
 			GameObject.Destroy (this.gameObject);
         }
 	}

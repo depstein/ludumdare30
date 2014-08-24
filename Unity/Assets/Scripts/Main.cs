@@ -18,7 +18,7 @@ public class Main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//InvokeRepeating("SpawnPlanet", 2, 1f);
-		for (int x = 0; x < 30; x++)
+		for (int x = 0; x < 15; x++)
 		{
 			SpawnPlanet();
 		}
@@ -29,8 +29,8 @@ public class Main : MonoBehaviour {
 	}
 
 	void SpawnPlanet() {
-		planetPrefab.GetComponent<Planet> ().Size = Random.Range (.1f, .4f);
-		GameObject ret = Instantiate(planetPrefab, Random.insideUnitCircle * 10, Quaternion.identity) as GameObject;
+		planetPrefab.GetComponent<Planet> ().Size = Random.Range (.2f, .4f);
+		GameObject ret = Instantiate(planetPrefab, Random.insideUnitCircle * 10 + new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
 		float angleBetweenVelocityAndRadius = Mathf.PI / 2;
 		Vector3 radius = (Main.staticGravityObject.transform.position - ret.transform.position);
 		float vel = Mathf.Sqrt (GravitationalConstant * staticGravityObject.rigidbody2D.mass / radius.magnitude);
@@ -49,8 +49,9 @@ public class Main : MonoBehaviour {
 
 		for (int x = 0; x < numDirections; x++)
 		{
-			GameObject projectile = GameObject.Instantiate(staticProjectilePrefab) as GameObject;
-			Vector2 vectorDir = new Vector2(Mathf.Cos(angleRad * x), Mathf.Sin(angleRad * x)) * dirMag;
+			float angle = angleRad * x - Mathf.Deg2Rad * 30f;
+			GameObject projectile = GameObject.Instantiate(staticProjectilePrefab, new Vector2(9999, 9999), Quaternion.identity) as GameObject;
+			Vector2 vectorDir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dirMag;
 			var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
 			projectileRigidBody.velocity = vectorDir;
 			
