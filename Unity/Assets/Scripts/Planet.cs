@@ -56,7 +56,7 @@ public class Planet : MonoBehaviour
 
     void OnMouseDown()
     {
-        /*Vector2 myPosition = GetComponent<Rigidbody2D>().position;
+      /*  Vector2 myPosition = GetComponent<Rigidbody2D>().position;
         Vector2 myVelocity = GetComponent<Rigidbody2D>().velocity;
         int numDirections = 5;
         int angleDif = 360 / numDirections;
@@ -72,11 +72,10 @@ public class Planet : MonoBehaviour
 
             Vector2 planetPosition = myPosition + planetRigidBody.velocity.normalized * planet.collider2D.bounds.size.magnitude;
             planetRigidBody.position = planetPosition;
-        }
+        }*/
 
-        GetComponent<SpriteRenderer>().sprite = null;
-        explosion.SetActive(true);
-        Destroy(this.gameObject, 2f);*/
+        GetComponent<Animator>().Play("Explode");
+        Destroy(this.gameObject, 2f);
     }
 
     void FixedUpdate()

@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Main : MonoBehaviour {
 	public GameObject planetPrefab;
-	public GameObject background;
-	private Color sourceColor = Colors.White;
-	private Color destinationColor;
+	
 	public GameObject gravityObject;
 	public static GameObject staticGravityObject;
 	public static float GravitationalConstant = 10;
@@ -15,23 +13,15 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		destinationColor = Colors.GetRandomColor();
 		//InvokeRepeating("SpawnPlanet", 2, 1f);
 		for (int x = 0; x < 8; x++)
 		{
 			SpawnPlanet();
 		}
-		InvokeRepeating("ChangeColor", 1, 1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		background.GetComponent<SpriteRenderer>().color = Color.Lerp(sourceColor, destinationColor, Time.time % 1f);
-	}
-
-	void ChangeColor() {
-		sourceColor = destinationColor;
-		destinationColor = Colors.GetRandomColor();
 	}
 
 	void SpawnPlanet() {
