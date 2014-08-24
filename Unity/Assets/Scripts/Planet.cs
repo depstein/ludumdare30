@@ -19,6 +19,7 @@ public class Planet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         var other = collision.gameObject.GetComponent<Planet>();
         if (other != null)
         {
@@ -52,6 +53,7 @@ public class Planet : MonoBehaviour
 
             }
         }
+        */
     }
 
     void OnMouseDown()
