@@ -2,6 +2,13 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
+	void Awake() {
+		InvokeRepeating("DieInAFire", 5, 5f);
+	}
+
+	void DieInAFire() {
+		GameObject.Destroy (this.gameObject);
+	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
