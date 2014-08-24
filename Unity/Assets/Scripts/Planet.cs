@@ -75,7 +75,7 @@ public class Planet : MonoBehaviour
             planetRigidBody.position = planetPosition;
         }
 
-        Destroy(gameObject);
+        GetComponent<SpriteRenderer>().sprite = null;
         explosion.SetActive(true);
         Destroy(this.gameObject, 2f);
     }
