@@ -46,6 +46,7 @@ public class Planet : MonoBehaviour
     {
 		if (Main.numClicks > 0)
 		{
+			Main.hasDestroyedPlanet = true;
         	DestroyPlanet(0);
 			Main.numClicks--;
 		}

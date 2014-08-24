@@ -15,7 +15,7 @@ public class Main : MonoBehaviour {
 	public static float timeLeft;
 	public static float maxTimeLeft;
 	public static int numClicks;
-
+	public static bool hasDestroyedPlanet;
 	public static Main instance;
 
 	void Awake() {
@@ -30,6 +30,7 @@ public class Main : MonoBehaviour {
 	}
 
 	void BeginGame() {
+		hasDestroyedPlanet = false;
 		StaticScoreboard.ResetPoints ();
 		numClicks = 1;
 		GameObject[] objects = GameObject.FindGameObjectsWithTag("Planet");
@@ -53,9 +54,11 @@ public class Main : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		GameObject gObject = GameObject.FindGameObjectWithTag("Projectile");
+
 		timeLeft -= Time.deltaTime;
 		sliderObject.GetComponent<UISlider> ().value = timeLeft / maxTimeLeft;
-		if (timeLeft <= 0)
+		if ((timeLeft <= 0 && !hasDestroyedPlanet) || (hasDestroyedPlanet && gObject == null))
 		{
 			BeginGame();
 		}
