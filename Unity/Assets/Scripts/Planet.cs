@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Planet : MonoBehaviour {
+public class Planet : MonoBehaviour
+{
 
     public float InitialXVelocity;
-    public float Size;
+    public float Size = 0.25f;
     public GameObject PlanetPrefab;
     private Vector2 lastVelocity;
 
-	void Awake () 
+    public GameObject planet;
+    public GameObject explosion;
+
+    void Awake()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(InitialXVelocity, 0.0f);
         GetComponent<Rigidbody2D>().mass = Size * 4;
@@ -47,9 +51,34 @@ public class Planet : MonoBehaviour {
 
                 a.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(-normal.normalized.y, normal.normalized.x));
                 b.rigidbody2D.velocity = 0.8f * otherVelocity + 0.2f * otherVelocity.magnitude * (new Vector2(normal.normalized.y, -normal.normalized.x));
-                
+
             }
         }
+    }
+
+    void OnMouseDown()
+    {
+        Vector2 myPosition = GetComponent<Rigidbody2D>().position;
+        Vector2 myVelocity = GetComponent<Rigidbody2D>().velocity;
+        int numDirections = 5;
+        int angleDif = 360 / numDirections;
+        float dirMag = 3.0f / ((float)numDirections);
+        float angleRad = Mathf.Deg2Rad * angleDif;
+        for (int x = 0; x < numDirections; x++)
+        {
+            PlanetPrefab.GetComponent<Planet>().Size = 0.25f;
+            GameObject planet = Instantiate(PlanetPrefab) as GameObject;
+            Vector2 vectorDir = new Vector2(Mathf.Cos(angleRad * x), Mathf.Sin(angleRad * x)) * dirMag;
+            var planetRigidBody = planet.GetComponent<Rigidbody2D>();
+            planetRigidBody.velocity = myVelocity + vectorDir;
+
+            Vector2 planetPosition = myPosition + planetRigidBody.velocity.normalized * planet.collider2D.bounds.size.magnitude;
+            planetRigidBody.position = planetPosition;
+        }
+
+        Destroy(gameObject);
+        explosion.SetActive(true);
+        Destroy(this.gameObject, 2f);
     }
 
     void FixedUpdate()
